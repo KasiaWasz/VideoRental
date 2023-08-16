@@ -29,29 +29,24 @@ public class Client implements com.videorental.entities.Entity {
     @Column
     private String email;
 
-    @Column
-    private Long movieId;
 
     public Client(String firstName,
         String lastName,
         LocalDate registrationDate,
         Long phoneNumber,
-        String email,
-        Long movieId) {
+        String email) {
 
         Assert.notNull(firstName, "firstName must not be null");
         Assert.notNull(lastName, "lastName must not be null");
         Assert.notNull(registrationDate, "registrationDate must not be null");
         Assert.notNull(phoneNumber, "phoneNumber must not be null");
         Assert.notNull(email, "email must not be null");
-        Assert.notNull(movieId, "movieId must not be null");
 
         this.firstName = firstName;
         this.lastName = lastName;
         this.registrationDate = registrationDate;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.movieId = movieId;
     }
 
     public Client() {
@@ -106,25 +101,18 @@ public class Client implements com.videorental.entities.Entity {
         this.email = email;
     }
 
-    public Long getMovieId() {
-        return movieId;
-    }
-
-    public void setMovieId(Long movieId) {
-        this.movieId = movieId;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Client client = (Client) o;
-        return Objects.equals(id, client.id) && Objects.equals(firstName, client.firstName) && Objects.equals(lastName, client.lastName) && Objects.equals(registrationDate, client.registrationDate) && Objects.equals(phoneNumber, client.phoneNumber) && Objects.equals(email, client.email) && Objects.equals(movieId, client.movieId);
+        return Objects.equals(id, client.id) && Objects.equals(firstName, client.firstName) && Objects.equals(lastName, client.lastName) && Objects.equals(registrationDate, client.registrationDate) && Objects.equals(phoneNumber, client.phoneNumber) && Objects.equals(email, client.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, registrationDate, phoneNumber, email, movieId);
+        return Objects.hash(id, firstName, lastName, registrationDate, phoneNumber, email);
     }
 
     @Override
@@ -135,8 +123,7 @@ public class Client implements com.videorental.entities.Entity {
                 ", lastName='" + lastName + '\'' +
                 ", registrationDate=" + registrationDate +
                 ", phoneNumber=" + phoneNumber +
-                ", email=" + email +
-                ", movieId=" + movieId +
+                ", email='" + email + '\'' +
                 '}';
     }
 }
