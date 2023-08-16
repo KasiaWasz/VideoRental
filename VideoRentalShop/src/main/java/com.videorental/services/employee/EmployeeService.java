@@ -22,7 +22,7 @@ public class EmployeeService {
     private final EmployeeRepository employeeRepository;
 
     @Autowired
-    EmployeeService(EmployeeQueries employeeQueries, EmployeeRepository employeeRepository) {
+    private EmployeeService(EmployeeQueries employeeQueries, EmployeeRepository employeeRepository) {
 
         Assert.notNull(employeeQueries, "employeeQueries must not be null");
         Assert.notNull(employeeRepository, "employeeRepository must not be null");

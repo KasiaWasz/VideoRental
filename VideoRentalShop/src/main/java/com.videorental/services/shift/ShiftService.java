@@ -21,7 +21,7 @@ public class ShiftService {
 
 
     @Autowired
-    public ShiftService(ShiftQueries shiftQueries, ShiftRepository shiftRepository) {
+    private ShiftService(ShiftQueries shiftQueries, ShiftRepository shiftRepository) {
 
         Assert.notNull(shiftQueries, "shiftQueries must not be null");
         Assert.notNull(shiftRepository, "shiftRepository must not be null");

@@ -19,7 +19,7 @@ public class MovieService {
 
 
     @Autowired
-    public MovieService(MovieQueries movieQueries, MovieRepository movieRepository) {
+    private MovieService(MovieQueries movieQueries, MovieRepository movieRepository) {
 
         Assert.notNull(movieQueries, "movieQueries must not be null");
         Assert.notNull(movieRepository, "movieRepository");
