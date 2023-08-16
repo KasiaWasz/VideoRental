@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+
+    <changeSet id="add-employees" author="kasia">
+        <sql dbms="postgresql" splitStatements="true" stripComments="true">
+            <![CDATA[
+                INSERT INTO employee (first_name, last_name, phone_number, join_date, role, hour_salary)
+                VALUES('Anna', 'Nowak', '123456789', '2022-09-01', 0, 40.00),
+                      ('Michał', 'Kruk', '123456789', '2022-09-01', 1, 40.00);
+            ]]>
+        </sql>
+    </changeSet>
+
+    <changeSet id="add-shifts" author="kasia">
+        <sql dbms="postgresql" splitStatements="true" stripComments="true">
+            <![CDATA[
+                INSERT INTO shift (employee_id, date, hours)
+                VALUES(1, '2022-09-01', 8),
+                      (2, '2022-09-01', 6);
+            ]]>
+        </sql>
+    </changeSet>
+
+    <changeSet id="add-movies" author="kasia">
+        <sql dbms="postgresql" splitStatements="true" stripComments="true">
+            <![CDATA[
+                INSERT INTO movie (name, price)
+                VALUES('Rocky', 10.99),
+                      ('Władca Pierścieni', 10.99),
+                      ('Dziedzictwo', 6.00);
+            ]]>
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
