@@ -22,14 +22,13 @@ import java.util.Optional;
 @Service
 class EmployeeQueriesImpl extends AbstractQueries<Employee> implements EmployeeQueries {
 
-
     private final EmployeeSimpleDtoFactory employeeSimpleDtoFactory;
     private final EmployeeDetailDtoFactory employeeDetailDtoFactory;
 
     @Autowired
     EmployeeQueriesImpl(SessionFactory sessionFactory,
-                               EmployeeSimpleDtoFactory employeeSimpleDtoFactory,
-                               EmployeeDetailDtoFactory employeeDetailDtoFactory) {
+        EmployeeSimpleDtoFactory employeeSimpleDtoFactory,
+        EmployeeDetailDtoFactory employeeDetailDtoFactory) {
 
         super(sessionFactory, Employee.class);
 
