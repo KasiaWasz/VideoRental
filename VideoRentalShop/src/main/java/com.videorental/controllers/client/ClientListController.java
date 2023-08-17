@@ -2,8 +2,6 @@ package com.videorental.controllers.client;
 
 import com.videorental.dtos.client.ClientDetailDto;
 import com.videorental.dtos.client.ClientDto;
-import com.videorental.dtos.employee.EmployeeDetailDto;
-import com.videorental.dtos.employee.EmployeeDto;
 import com.videorental.services.client.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
