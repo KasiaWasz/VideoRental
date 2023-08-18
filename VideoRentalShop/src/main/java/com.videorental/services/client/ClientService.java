@@ -1,5 +1,6 @@
 package com.videorental.services.client;
 
+import com.videorental.controllers.client.ClientForm;
 import com.videorental.dtos.client.ClientDetailDto;
 import com.videorental.dtos.client.ClientDto;
 import com.videorental.dtos.client.ClientSimpleDto;
@@ -10,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClientService {
@@ -56,5 +59,42 @@ public class ClientService {
         Assert.notNull(id, "id must not be null");
 
         return clientQueries.getById(id);
+    }
+
+    public void saveOrUpdateClient(ClientForm clientForm) {
+
+        Assert.notNull(clientForm, "clientForm must not be null");
+
+        Optional<Client> existingClient = clientQueries.findById(clientForm.getId());
+
+        if (existingClient.isPresent()) {
+            Client client = existingClient.get();
+            updateClientFields(client, clientForm);
+            clientRepository.saveOrUpdate(client);
+        } else {
+            Client newClient = createNewClient(clientForm);
+            clientRepository.saveOrUpdate(newClient);
+        }
+    }
+
+    private void updateClientFields(Client client, ClientForm clientForm) {
+
+        client.setFirstName(clientForm.getFirstName());
+        client.setLastName(clientForm.getLastName());
+        client.setPhoneNumber(clientForm.getPhoneNumber());
+        client.setRegistrationDate(LocalDate.parse(clientForm.getRegistrationDate()));
+        client.setEmail(clientForm.getEmail());
+    }
+
+    private Client createNewClient(ClientForm clientForm) {
+
+        return new Client(
+                clientForm.getFirstName(),
+                clientForm.getLastName(),
+                LocalDate.parse(clientForm.getRegistrationDate()),
+                clientForm.getPhoneNumber(),
+                clientForm.getEmail()
+        );
+
     }
 }
