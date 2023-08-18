@@ -24,17 +24,17 @@ public class Client implements com.videorental.entities.Entity {
     private LocalDate registrationDate;
 
     @Column
-    private Long phoneNumber;
+    private String phoneNumber;
 
     @Column
     private String email;
 
 
     public Client(String firstName,
-        String lastName,
-        LocalDate registrationDate,
-        Long phoneNumber,
-        String email) {
+                  String lastName,
+                  LocalDate registrationDate,
+                  String phoneNumber,
+                  String email) {
 
         Assert.notNull(firstName, "firstName must not be null");
         Assert.notNull(lastName, "lastName must not be null");
@@ -84,11 +84,11 @@ public class Client implements com.videorental.entities.Entity {
         this.registrationDate = registrationDate;
     }
 
-    public Long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

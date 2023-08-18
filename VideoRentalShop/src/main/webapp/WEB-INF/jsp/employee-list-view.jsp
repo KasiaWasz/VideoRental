@@ -28,7 +28,7 @@
             <td>${employee.lastName}</td>
             <td>${employee.phoneNumber}</td>
             <td>
-                <a href="employee-edit?id=${employee.id}">Edytuj</a></td>
+                <a href="<c:url value='/employee-edit' />?id=${employee.id}">Edytuj</a>
             <td>
                 <a href="employee-edit/delete?id=${employee.id}">Usuń</a></td>
             <td>

@@ -14,11 +14,11 @@ public class ClientDetailDto {
 
     private LocalDate registrationDate;
 
-    private Long phoneNumber;
+    private String phoneNumber;
 
     private String email;
 
-    public ClientDetailDto(Long id, String firstName, String lastName, LocalDate registrationDate, Long phoneNumber, String email) {
+    public ClientDetailDto(Long id, String firstName, String lastName, LocalDate registrationDate, String phoneNumber, String email) {
 
         Assert.notNull(firstName, "firstName must not be null");
         Assert.notNull(lastName, "lastName must not be null");
@@ -53,7 +53,7 @@ public class ClientDetailDto {
         return registrationDate;
     }
 
-    public Long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 

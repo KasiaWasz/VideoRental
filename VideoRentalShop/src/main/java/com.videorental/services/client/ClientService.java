@@ -3,6 +3,7 @@ package com.videorental.services.client;
 import com.videorental.dtos.client.ClientDetailDto;
 import com.videorental.dtos.client.ClientDto;
 import com.videorental.dtos.client.ClientSimpleDto;
+import com.videorental.entities.client.Client;
 import com.videorental.queries.client.ClientQueries;
 import com.videorental.repositories.client.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,15 @@ public class ClientService {
 
     public ClientDetailDto getClientDetailDtoById(Long id) {
 
+        Assert.notNull(id, "id must not be null");
+
         return clientQueries.getClientDetailDtoById(id);
+    }
+
+    public Client getById(Long id) {
+
+        Assert.notNull(id, "id must not be null");
+
+        return clientQueries.getById(id);
     }
 }

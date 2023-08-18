@@ -104,7 +104,6 @@ class EmployeeValidator implements Validator {
         if (isBlank(phoneNumber)) {
 
             errors.rejectValue(EmployeeForm.F_PHONE_NUMBER, E_FIELD_REQUIRED);
-
         }
 
         else if (!phoneNumber.matches(PHONE_NUMBER_REGEX)) {

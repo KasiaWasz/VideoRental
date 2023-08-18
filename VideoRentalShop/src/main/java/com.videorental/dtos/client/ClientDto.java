@@ -2,8 +2,6 @@ package com.videorental.dtos.client;
 
 import org.springframework.util.Assert;
 
-import java.time.LocalDate;
-
 public class ClientDto {
 
     private Long id;
@@ -12,12 +10,12 @@ public class ClientDto {
 
     private String lastName;
 
-    private Long phoneNumber;
+    private String phoneNumber;
 
     private String email;
 
 
-    public ClientDto(Long id, String firstName, String lastName, Long phoneNumber, String email) {
+    public ClientDto(Long id, String firstName, String lastName, String phoneNumber, String email) {
 
         Assert.notNull(firstName, "firstName must not be null");
         Assert.notNull(lastName, "lastName must not be null");
@@ -48,7 +46,7 @@ public class ClientDto {
         return lastName;
     }
 
-    public Long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
