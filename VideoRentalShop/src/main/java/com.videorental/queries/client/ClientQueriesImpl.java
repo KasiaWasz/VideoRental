@@ -20,7 +20,7 @@ class ClientQueriesImpl extends AbstractQueries<Client> implements ClientQueries
 
 
     @Autowired
-    protected ClientQueriesImpl(SessionFactory sessionFactory,
+    ClientQueriesImpl(SessionFactory sessionFactory,
         ClientDetailDtoFactory clientDetailDtoFactory,
         ClientSimpleDtoFactory clientSimpleDtoFactory) {
 

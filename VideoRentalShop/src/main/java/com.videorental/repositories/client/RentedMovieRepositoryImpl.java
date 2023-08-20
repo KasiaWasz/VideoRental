@@ -1,18 +1,18 @@
 package com.videorental.repositories.client;
 
-
-import com.videorental.entities.client.Client;
+import com.videorental.entities.client.RentedMovie;
 import com.videorental.repositories.AbstractRepository;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-class ClientRepositoryImpl extends AbstractRepository<Client> implements ClientRepository {
+class RentedMovieRepositoryImpl extends AbstractRepository<RentedMovie> implements RentedMovieRepository {
 
 
     @Autowired
-    ClientRepositoryImpl(SessionFactory sessionFactory) {
-        super(sessionFactory, Client.class);
+    RentedMovieRepositoryImpl(SessionFactory sessionFactory) {
+
+        super(sessionFactory, RentedMovie.class);
     }
 }
