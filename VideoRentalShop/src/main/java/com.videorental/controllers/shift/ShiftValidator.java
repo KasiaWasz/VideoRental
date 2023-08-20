@@ -70,9 +70,9 @@ class ShiftValidator implements Validator {
 
             LocalDate targetDate = LocalDate.parse(date, DATE_TIME_FORMATTER);
 
-            boolean iShiftNotValid = isShiftIncorrect(id, employeeId, targetDate, shifts);
+            boolean isShiftNotValid = isShiftIncorrect(id, employeeId, targetDate, shifts);
 
-            if (iShiftNotValid) {
+            if (isShiftNotValid) {
 
                 errors.rejectValue(ShiftForm.F_EMPLOYEE_ID, E_EMPLOYEE_ID_INVALID);
             }

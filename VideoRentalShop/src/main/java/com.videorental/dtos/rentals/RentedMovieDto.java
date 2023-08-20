@@ -1,4 +1,4 @@
-package com.videorental.dtos.client;
+package com.videorental.dtos.rentals;
 
 import org.springframework.util.Assert;
 

@@ -1,6 +1,6 @@
-package com.videorental.repositories.client;
+package com.videorental.repositories.rentals;
 
-import com.videorental.entities.client.RentedMovie;
+import com.videorental.entities.rentals.RentedMovie;
 import com.videorental.repositories.AbstractRepository;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

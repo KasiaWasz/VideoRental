@@ -1,8 +1,9 @@
-package com.videorental.queries.client;
+package com.videorental.queries.rentals;
 
-import com.videorental.dtos.client.RentedMovieDto;
-import com.videorental.entities.client.RentedMovie;
+import com.videorental.dtos.rentals.RentedMovieDto;
+import com.videorental.entities.rentals.RentedMovie;
 import com.videorental.queries.AbstractQueries;
+import com.videorental.queries.client.ClientQueries;
 import com.videorental.queries.movie.MovieQueries;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

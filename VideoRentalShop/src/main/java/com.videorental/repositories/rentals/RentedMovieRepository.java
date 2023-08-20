@@ -1,6 +1,6 @@
-package com.videorental.repositories.client;
+package com.videorental.repositories.rentals;
 
-import com.videorental.entities.client.RentedMovie;
+import com.videorental.entities.rentals.RentedMovie;
 
 public interface RentedMovieRepository {
 

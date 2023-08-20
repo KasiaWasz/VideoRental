@@ -1,4 +1,4 @@
-package com.videorental.entities.client;
+package com.videorental.entities.rentals;
 
 import org.springframework.util.Assert;
 
