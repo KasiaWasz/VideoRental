@@ -18,6 +18,8 @@
                 <th>Nazwisko</th>
                 <th>Numer telefonu</th>
                 <th>Email</th>
+                <th>Edycja</th>
+                <th>Usuń</th>
                 <th>Szczegóły</th>
             </tr>
 
@@ -28,6 +30,10 @@
             <td>${client.lastName}</td>
             <td>${client.phoneNumber}</td>
             <td>${client.email}</td>
+            <td>
+                <a href="<c:url value='/client-edit' />?id=${client.id}">Edytuj</a>
+            <td>
+                <a href="client-edit/delete?id=${client.id}">Usuń</a></td>
             <td>
                 <a href="<c:url value='/client-list/details' />?id=${client.id}">Szczegóły</a></td>
             </tr>
