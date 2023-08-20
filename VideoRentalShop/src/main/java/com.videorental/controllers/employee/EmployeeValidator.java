@@ -22,7 +22,7 @@ class EmployeeValidator implements Validator {
     private static final String E_FIELD_REQUIRED = "field.required";
     private static final String E_FIRSTNAME_INVALID = "firstname.invalid";
     private static final String E_LASTNAME_INVALID = "lastname.invalid";
-    private static final String E_JOIN_DATE_INVALID = "joinDate.invalid";
+    private static final String E_JOIN_DATE_INVALID = "date.invalid";
     private static final String E_PHONE_NUMBER_INVALID = "phoneNumber.invalid";
     private static final String E_HOUR_SALARY_INVALID = "hourSalary.invalid";
 
@@ -43,7 +43,6 @@ class EmployeeValidator implements Validator {
         validatePhoneNumber(employeeForm.getPhoneNumber(), errors);
         validateSalary(employeeForm.getHourSalary(), errors);
         validateRole(employeeForm.getRole(), errors);
-
     }
 
     private void validateFirstName(String firstname, Errors errors) {

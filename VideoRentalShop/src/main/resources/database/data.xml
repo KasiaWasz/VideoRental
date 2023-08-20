@@ -29,8 +29,10 @@
             <![CDATA[
                 INSERT INTO movie (name, price)
                 VALUES('Rocky', 10.99),
-                      ('Władca Pierścieni', 10.99),
-                      ('Dziedzictwo', 6.00);
+                      ('Władca Pierścieni Drużyna Pierścienia', 10.99),
+                      ('Dziedzictwo', 6.00),
+                      ('Władca Pierścieni Dwie Wieże', 10.99),
+                      ('Władca Pierścieni Powrót Króla', 10.99);
             ]]>
         </sql>
     </changeSet>
@@ -42,6 +44,18 @@
                 VALUES('Robert', 'Kocur', '2022-10-03', 571900311, 'rkocur@gmail.com'),
                       ('Katarzyna', 'Bijak', '2022-09-02', 522190231, 'kasiab@gmail.com'),
                       ('Ilona', 'Szymańska', '2022-09-20', 667295050, 'ilona.szymanska@wp.com');
+            ]]>
+        </sql>
+    </changeSet>
+
+    <changeSet id="add-rented-movies" author="kasia">
+        <sql dbms="postgresql" splitStatements="true" stripComments="true">
+            <![CDATA[
+                INSERT INTO rented_movie (client_id, movie_id, rent_date)
+                VALUES(1, 1, '2022-09-20'),
+                      (1, 2, '2022-09-20'),
+                      (2, 3, '2022-10-03'),
+                      (3, 4, '2022-10-03');
             ]]>
         </sql>
     </changeSet>

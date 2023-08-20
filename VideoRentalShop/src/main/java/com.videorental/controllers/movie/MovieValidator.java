@@ -28,7 +28,6 @@ class MovieValidator implements Validator {
 
         validateName(movieForm.getName(), errors);
         validatePrice(movieForm.getPrice(), errors);
-
     }
 
     private void validateName(String name, Errors errors) {

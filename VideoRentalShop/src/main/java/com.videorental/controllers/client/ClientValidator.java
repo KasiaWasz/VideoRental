@@ -15,13 +15,12 @@ class ClientValidator implements Validator {
 
     private static final String FIRSTNAME_LASTNAME_REGEX = "^[a-zA-Z-'ąćęłńóśźżĄĆĘŁŃÓŚŹŻ ]+$";
     private static final String PHONE_NUMBER_REGEX = "^\\d{9}$";
-    private static final String EMAIL_REGEX = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\\n";
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     private static final String E_FIELD_REQUIRED = "field.required";
     private static final String E_FIRSTNAME_INVALID = "firstname.invalid";
     private static final String E_LASTNAME_INVALID = "lastname.invalid";
-    private static final String E_JOIN_DATE_INVALID = "joinDate.invalid";
+    private static final String E_JOIN_DATE_INVALID = "date.invalid";
     private static final String E_PHONE_NUMBER_INVALID = "phoneNumber.invalid";
     private static final String E_EMAIL_INVALID = "email.invalid";
 
@@ -33,6 +32,13 @@ class ClientValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
 
+        ClientForm clientForm = (ClientForm) target;
+
+        validateFirstName(clientForm.getFirstName(), errors);
+        validateLastName(clientForm.getLastName(), errors);
+        validateRegistrationDate(clientForm.getRegistrationDate(), errors);
+        validatePhoneNumber(clientForm.getPhoneNumber(), errors);
+        validateEmail(clientForm.getEmail(), errors);
     }
 
     private void validateFirstName(String firstname, Errors errors) {
@@ -106,10 +112,6 @@ class ClientValidator implements Validator {
         if (isBlank(email)) {
 
             errors.rejectValue(ClientForm.F_EMAIL, E_FIELD_REQUIRED);
-        }
-        else if (!email.matches(EMAIL_REGEX)) {
-
-            errors.rejectValue(ClientForm.F_EMAIL, E_EMAIL_INVALID);
         }
     }
 

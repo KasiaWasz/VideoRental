@@ -25,5 +25,8 @@
     <h4>Filmy</h4>
         <li><a href="/movie-list">Zobacz wszystkie filmy</a></li>
         <li><a href="/movie-edit">Dodaj film</a></li>
+    <h4>Wypożyczenia</h4>
+        <li><a href="/rental-list">Zobacz wszystkie wypożyczenia</a></li>
+        <li><a href="/rental-edit">Wypożycz film</a></li>
     </body>
     </html>

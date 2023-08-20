@@ -2,8 +2,6 @@ package com.videorental.controllers.client;
 
 import org.springframework.util.Assert;
 
-import java.time.LocalDate;
-
 public class ClientForm {
 
     static final String F_FIRST_NAME = "firstName";

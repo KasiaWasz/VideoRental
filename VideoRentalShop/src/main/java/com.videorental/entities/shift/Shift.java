@@ -1,17 +1,13 @@
 package com.videorental.entities.shift;
 
-import com.videorental.entities.Entity;
 import org.springframework.util.Assert;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
 
-@javax.persistence.Entity
-public class Shift implements Entity {
+@Entity
+public class Shift implements com.videorental.entities.Entity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
