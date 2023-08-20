@@ -15,6 +15,10 @@
         <li><a href="/employee-list">Zobacz wszystkich pracowników</a></li>
         <li><a href="/employee-list/employees-details">Zobacz szczegółowe informacje o pracownikach</a></li>
         <li><a href="/employee-edit">Dodaj pracownika</a></li>
+    <h4>Klienci</h4>
+        <li><a href="/client-list">Zobacz wszystkich klientów</a></li>
+        <li><a href="/client-list/clients-details">Zobacz szczegółowe informacje o klientach</a></li>
+        <li><a href="/client-edit">Dodaj klienta</a></li>
     <h4>Dyżury</h4>
         <li><a href="/shift-list">Zobacz wszystkie zmiany</a></li>
         <li><a href="/shift-edit">Dodaj zmianę</a></li>
