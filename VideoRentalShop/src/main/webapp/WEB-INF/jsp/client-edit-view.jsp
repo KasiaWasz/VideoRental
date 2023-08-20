@@ -6,11 +6,11 @@
 <html lang="pl">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
-    <title>Dodawanie i edycja pracowników</title>
+    <title>Dodawanie i edycja klientów</title>
 </head>
 <body>
-    <h1>Dodawanie i edycja pracowników</h1>
-    <form:form action="/employee-edit" modelAttribute="employeeForm" method="post">
+    <h1>Dodawanie i edycja klientów</h1>
+    <form:form action="/client-edit" modelAttribute="clientForm" method="post">
         <form:input path ="id" hidden="true" value="${id}"/>
         <table style="width: 50%">
             <tr>
@@ -24,10 +24,10 @@
                 <td><form:errors path = "lastName" cssClass="error"/></td>
             </tr>
             <tr>
-                <td><form:label path = "joinDate">Data dołączenia</form:label></td>
-                <td><form:input path = "joinDate" type = "date"
+                <td><form:label path = "registrationDate">Data rejestracji</form:label></td>
+                <td><form:input path = "registrationDate" type = "date"
                 min = "2022-01-01" /> </td>
-                <td><form:errors path = "joinDate" cssClass="error"/></td>
+                <td><form:errors path = "registrationDate" cssClass="error"/></td>
             </tr>
             <tr>
                 <td><form:label path = "phoneNumber">Telefon</form:label></td>
@@ -35,18 +35,9 @@
                 <td><form:errors path = "phoneNumber" cssClass="error"/></td>
             </tr>
             <tr>
-                <td><form:label path = "hourSalary">Stawka godzinowa</form:label></td>
-                <td><form:input path = "hourSalary" /></td>
-                <td><form:errors path = "hourSalary" cssClass="error"/></td>
-            </tr>
-            <tr>
-                <td><form:label path = "role">Stanowisko</form:label></td>
-                <td>
-                    <form:select path="role">
-                        <form:options items="${roles}" itemLabel="name" itemValue="name" />
-                    </form:select>
-                </td>
-                <td><form:errors path = "role" cssClass="error"/></td>
+                <td><form:label path = "email">Email</form:label></td>
+                <td><form:input path = "email" /></td>
+                <td><form:errors path = "email" cssClass="error"/></td>
             </tr>
 
         </table>
@@ -54,7 +45,7 @@
         <button class = "button" type="submit">Wyślij</button>
         </form:form>
         <br>
-        <a href="/employee-list">Wróć do listy pracowników</a>
+        <a href="/client-list">Wróć do listy klientów</a>
         <br>
         <a href="/">Wróć do strony głównej</a>
     </body>

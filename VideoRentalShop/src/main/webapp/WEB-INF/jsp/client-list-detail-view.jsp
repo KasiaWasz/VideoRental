@@ -6,36 +6,34 @@
 <html lang="pl">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
-    <title>Lista pracowników</title>
+    <title>Lista klientów</title>
 </head>
 <body>
-    <h1>Lista pracowników</h1>
+    <h1>Lista klientów</h1>
         <h2>Szczegóły</h2>
         <table>
             <tr>
                 <th>ID</th>
                 <th>Imię</th>
                 <th>Nazwisko</th>
-                <th>Data dołączenia</th>
+                <th>Data rejestracji</th>
                 <th>Numer telefonu</th>
-                <th>Stawka godzinowa</th>
-                <th>Stanowisko</th>
+                <th>Email</th>
             </tr>
 
-            <c:forEach items="${employeesDetails}" var="employeeDetail">
+            <c:forEach items="${clientsDetails}" var="clientDetail">
             <tr>
-                <td>${employeeDetail.id}</td>
-                <td>${employeeDetail.firstName}</td>
-                <td>${employeeDetail.lastName}</td>
-                <td>${employeeDetail.joinDate}</td>
-                <td>${employeeDetail.phoneNumber}</td>
-                <td>${employeeDetail.hourSalary}</td>
-                <td>${employeeDetail.role}</td>
+                <td>${clientDetail.id}</td>
+                <td>${clientDetail.firstName}</td>
+                <td>${clientDetail.lastName}</td>
+                <td>${clientDetail.registrationDate}</td>
+                <td>${clientDetail.phoneNumber}</td>
+                <td>${clientDetail.email}</td>
             </tr>
         </c:forEach>
     </table>
     <br>
-<a href="/employee-list">Wróć do listy pracowników</a>
+<a href="/client-list">Wróć do listy klientów</a>
 <br>
 <a href="/">Wróć do strony głównej</a>
 </body>

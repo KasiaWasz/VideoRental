@@ -10,6 +10,7 @@ class EmployeeDetailDtoFactory {
     EmployeeDetailDto create(Employee employee) {
 
         if (employee == null) {
+
             return null;
         }
         return new EmployeeDetailDto(

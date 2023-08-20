@@ -14,15 +14,15 @@ import java.util.List;
 
 @RequestMapping("/movie-list")
 @Controller
-public class MovieListController {
+class MovieListController {
 
     private static final String M_MOVIE_LIST = "movies";
-    private static final String V_MOVIE_LIST_VIEW = "movie-list-view";
+    private static final String V_MOVIE_LIST = "movie-list-view";
     private final MovieService movieService;
 
 
     @Autowired
-    public MovieListController(MovieService movieService) {
+    private MovieListController(MovieService movieService) {
 
         Assert.notNull(movieService, "movieService must not be null");
 
@@ -39,6 +39,6 @@ public class MovieListController {
     @GetMapping
     private String showMovieList() {
 
-        return V_MOVIE_LIST_VIEW;
+        return V_MOVIE_LIST;
     }
 }

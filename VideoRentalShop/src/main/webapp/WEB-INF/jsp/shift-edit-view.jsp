@@ -41,6 +41,8 @@
         <button class = "button" type="submit">Wyślij</button>
         </form:form>
         <br>
-        <a href="/shift-list">Powrót do listy zmian</a>
+        <a href="/shift-list">Wróć do listy zmian</a>
+        <br>
+        <a href="/">Wróć do strony głównej</a>
     </body>
 </html>

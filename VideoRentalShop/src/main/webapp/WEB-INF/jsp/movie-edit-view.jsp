@@ -29,6 +29,8 @@
         <button class = "button" type="submit">Wyślij</button>
         </form:form>
         <br>
-        <a href="/movie-list">Powrót do listy filmów</a>
+        <a href="/movie-list">Wróć do listy filmów</a>
+        <br>
+        <a href="/">Wróć do strony głównej</a>
     </body>
 </html>

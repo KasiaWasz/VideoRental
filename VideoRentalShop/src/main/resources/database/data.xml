@@ -35,4 +35,15 @@
         </sql>
     </changeSet>
 
+    <changeSet id="add-clients" author="kasia">
+        <sql dbms="postgresql" splitStatements="true" stripComments="true">
+            <![CDATA[
+                INSERT INTO client (first_name, last_name, registration_date, phone_number, email)
+                VALUES('Robert', 'Kocur', '2022-10-03', 571900311, 'rkocur@gmail.com'),
+                      ('Katarzyna', 'Bijak', '2022-09-02', 522190231, 'kasiab@gmail.com'),
+                      ('Ilona', 'Szymańska', '2022-09-20', 667295050, 'ilona.szymanska@wp.com');
+            ]]>
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>

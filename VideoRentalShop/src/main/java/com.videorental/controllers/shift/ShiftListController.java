@@ -15,7 +15,7 @@ import java.util.List;
 @Controller
 class ShiftListController {
 
-    private static final String V_SHIFTS_LIST_VIEW = "shifts-list-view";
+    private static final String V_SHIFTS_LIST = "shifts-list-view";
     private static final String M_SHIFTS_LIST = "shifts";
     private final ShiftService shiftService;
 
@@ -37,6 +37,6 @@ class ShiftListController {
     @GetMapping
     private String showShiftList() {
 
-        return V_SHIFTS_LIST_VIEW;
+        return V_SHIFTS_LIST;
     }
 }
