@@ -34,6 +34,9 @@
             </tr>
         </c:forEach>
     </table>
-<a href="/employee-list">Powrót do listy pracowników</a>
+    <br>
+<a href="/employee-list">Wróć do listy pracowników</a>
+<br>
+<a href="/">Wróć do strony głównej</a>
 </body>
 </html>

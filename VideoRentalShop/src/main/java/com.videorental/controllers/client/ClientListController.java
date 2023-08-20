@@ -16,18 +16,18 @@ import java.util.List;
 
 @RequestMapping("/client-list")
 @Controller
-public class ClientListController {
+class ClientListController {
 
     private static final String M_CLIENT_LIST = "clients";
     private static final String M_CLIENT_DETAILS_LIST = "clientsDetails";
-    private static final String V_CLIENTS_LIST_VIEW = "client-list-view";
-    private static final String V_CLIENTS_LIST_DETAIL_VIEW = "client-list-detail-view";
+    private static final String V_CLIENTS_LIST = "client-list-view";
+    private static final String V_CLIENTS_LIST_DETAIL = "client-list-detail-view";
     private static final String P_CLIENT_ID = "id";
     private final ClientService clientService;
 
 
     @Autowired
-    public ClientListController(ClientService clientService) {
+    private ClientListController(ClientService clientService) {
 
         Assert.notNull(clientService, "clientService must not be null");
 
@@ -49,7 +49,7 @@ public class ClientListController {
     @GetMapping
     private String showClientList() {
 
-        return V_CLIENTS_LIST_VIEW;
+        return V_CLIENTS_LIST;
     }
 
     @GetMapping("/details")
@@ -58,12 +58,12 @@ public class ClientListController {
         model.addAttribute("showDetails", true);
         model.addAttribute("clientDetail", clientService.getClientDetailDtoById(id));
 
-        return V_CLIENTS_LIST_VIEW;
+        return V_CLIENTS_LIST;
     }
 
     @GetMapping("/clients-details")
     private String showDetailedClientList() {
 
-        return V_CLIENTS_LIST_DETAIL_VIEW;
+        return V_CLIENTS_LIST_DETAIL;
     }
 }

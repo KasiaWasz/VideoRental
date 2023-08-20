@@ -32,6 +32,9 @@
             </tr>
         </c:forEach>
     </table>
-<a href="/client-list">Powrót do listy klientów</a>
+    <br>
+<a href="/client-list">Wróć do listy klientów</a>
+<br>
+<a href="/">Wróć do strony głównej</a>
 </body>
 </html>

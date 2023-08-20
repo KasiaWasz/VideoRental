@@ -95,6 +95,12 @@ public class ClientService {
                 clientForm.getPhoneNumber(),
                 clientForm.getEmail()
         );
+    }
 
+    public void deleteById(Long id) {
+
+        Assert.notNull(id, "id must not be null");
+
+        clientRepository.deleteById(id);
     }
 }

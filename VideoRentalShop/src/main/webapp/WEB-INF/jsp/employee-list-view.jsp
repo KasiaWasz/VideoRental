@@ -63,8 +63,9 @@
                 </tr>
 
             </table>
-            <a href="/employee-list">Powrót do listy pracowników</a>
     </c:if>
     <a href="<c:url value='/employee-list/employees-details' />">Pokaż szczegółową listę pracowników</a>
+    <br>
+    <a href="/">Wróć do strony głównej</a>
 </body>
 </html>

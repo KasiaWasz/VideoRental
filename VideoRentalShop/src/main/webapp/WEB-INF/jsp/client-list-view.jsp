@@ -57,8 +57,9 @@
             </tr>
 
             </table>
-            <a href="/client-list">Powrót do listy klientów</a>
     </c:if>
     <a href="<c:url value='/client-list/clients-details' />">Pokaż szczegółową listę klientów</a>
+    <br>
+    <a href="/">Wróć do strony głównej</a>
 </body>
 </html>

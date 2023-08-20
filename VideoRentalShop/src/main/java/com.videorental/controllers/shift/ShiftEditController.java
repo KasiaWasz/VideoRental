@@ -20,7 +20,7 @@ class ShiftEditController {
     private static final String M_EDIT_FORM = "shiftForm";
     private static final String M_EMPLOYEES_LIST = "employees";
     private static final String P_SHIFT_ID = "id";
-    private static final String V_SHIFT_EDIT_VIEW = "shift-edit-view";
+    private static final String V_SHIFT_EDIT = "shift-edit-view";
     private static final String SHIFT_LIST_URL = "/shift-list";
 
     private final ShiftService shiftService;
@@ -73,7 +73,7 @@ class ShiftEditController {
     @GetMapping
     private String showShiftForm() {
 
-        return V_SHIFT_EDIT_VIEW;
+        return V_SHIFT_EDIT;
     }
 
     @PostMapping
@@ -82,7 +82,7 @@ class ShiftEditController {
 
         if (bindingResult.hasErrors()) {
 
-            return V_SHIFT_EDIT_VIEW;
+            return V_SHIFT_EDIT;
         }
 
         shiftService.saveOrUpdateShift(shiftForm);

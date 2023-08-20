@@ -20,8 +20,8 @@ class EmployeeListController {
 
     private static final String M_EMPLOYEE_LIST = "employees";
     private static final String M_EMPLOYEE_DETAILS_LIST = "employeesDetails";
-    private static final String V_EMPLOYEES_LIST_VIEW = "employee-list-view";
-    private static final String V_EMPLOYEES_LIST_DETAIL_VIEW = "employee-list-detail-view";
+    private static final String V_EMPLOYEES_LIST = "employee-list-view";
+    private static final String V_EMPLOYEES_LIST_DETAIL = "employee-list-detail-view";
     private static final String P_EMPLOYEE_ID = "id";
     private final EmployeeService employeeService;
 
@@ -50,7 +50,7 @@ class EmployeeListController {
     @GetMapping
     private String showEmployeeList() {
 
-        return V_EMPLOYEES_LIST_VIEW;
+        return V_EMPLOYEES_LIST;
     }
 
     @GetMapping("/details")
@@ -59,12 +59,12 @@ class EmployeeListController {
         model.addAttribute("showDetails", true);
         model.addAttribute("employeeDetail", employeeService.getEmployeeDetailDtoById(id));
 
-        return V_EMPLOYEES_LIST_VIEW;
+        return V_EMPLOYEES_LIST;
     }
 
     @GetMapping("/employees-details")
     private String showDetailedEmployeeList() {
 
-        return V_EMPLOYEES_LIST_DETAIL_VIEW;
+        return V_EMPLOYEES_LIST_DETAIL;
     }
 }
