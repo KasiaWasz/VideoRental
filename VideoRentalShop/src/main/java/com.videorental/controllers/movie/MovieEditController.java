@@ -18,6 +18,7 @@ class MovieEditController {
     private static final String M_EDIT_FORM = "movieForm";
     private static final String P_MOVIE_ID = "id";
     private static final String V_MOVIE_EDIT = "movie-edit-view";
+    private static final String V_ERROR_RENTED = "error-rented-view";
     private static final String MOVIE_LIST_URL ="/movie-list";
 
     private final MovieService movieService;
@@ -39,6 +40,7 @@ class MovieEditController {
         this.movieValidator = movieValidator;
     }
 
+
     @InitBinder(M_EDIT_FORM)
     private void initBinder(WebDataBinder binder) {
 
@@ -54,6 +56,12 @@ class MovieEditController {
         }
 
         return movieFormFactory.create(id);
+    }
+
+    @ModelAttribute(M_EDIT_FORM)
+    private boolean isMovieRented(Long id) {
+
+        return movieService.isMovieRented(id);
     }
 
     @GetMapping
@@ -79,8 +87,13 @@ class MovieEditController {
     @GetMapping("/delete")
     private String deleteEmployee(@RequestParam(P_MOVIE_ID) Long id) {
 
-        movieService.deleteById(id);
+        boolean movieRented = isMovieRented(id);
 
+        if (movieRented) {
+            return V_ERROR_RENTED;
+        }
+
+        movieService.deleteById(id);
         return "redirect:" + MOVIE_LIST_URL;
     }
 }

@@ -32,6 +32,7 @@ class RentedMovieEditController {
     private final MovieService movieService;
     private final RentedMovieValidator rentedMovieValidator;
 
+
     @Autowired
     private RentedMovieEditController(RentedMovieValidator rentedMovieValidator,
         ClientService clientService,
@@ -97,7 +98,7 @@ class RentedMovieEditController {
     @GetMapping("/delete")
     private String deleteEmployee(@RequestParam(P_RENTAL_ID) Long id) {
 
-        movieService.deleteById(id);
+        rentedMovieService.deleteById(id);
 
         return "redirect:" + RENTAL_LIST_URL;
     }
