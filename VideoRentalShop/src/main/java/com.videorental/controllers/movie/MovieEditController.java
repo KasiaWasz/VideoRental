@@ -28,8 +28,8 @@ class MovieEditController {
 
     @Autowired
     private MovieEditController(MovieService movieService,
-       MovieFormFactory movieFormFactory,
-       MovieValidator movieValidator) {
+        MovieFormFactory movieFormFactory,
+        MovieValidator movieValidator) {
 
         Assert.notNull(movieService, "movieService must not be null");
         Assert.notNull(movieFormFactory, "movieFormFactory must not be null");
@@ -72,7 +72,7 @@ class MovieEditController {
 
     @PostMapping
     private String addOrUpdateMovie(@ModelAttribute(M_EDIT_FORM) @Valid MovieForm movieForm,
-                                       BindingResult bindingResult) {
+        BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
 

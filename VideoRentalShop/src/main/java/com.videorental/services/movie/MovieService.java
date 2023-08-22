@@ -71,6 +71,7 @@ public class MovieService {
     public boolean isMovieRented(Long id) {
 
         List<RentedMovie> rentals = rentedMovieService.getAll();
+
         return rentals.stream()
                 .anyMatch(rental ->
                         rental.getMovieId().equals(id));

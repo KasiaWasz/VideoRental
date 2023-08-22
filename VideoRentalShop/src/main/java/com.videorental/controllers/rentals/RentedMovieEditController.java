@@ -1,6 +1,5 @@
 package com.videorental.controllers.rentals;
 
-import com.videorental.controllers.movie.MovieForm;
 import com.videorental.dtos.client.ClientDto;
 import com.videorental.dtos.movie.MovieDto;
 import com.videorental.services.client.ClientService;
