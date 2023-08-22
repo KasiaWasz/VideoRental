@@ -1,6 +1,5 @@
 package com.videorental.controllers.rentals;
 
-import com.videorental.controllers.movie.MovieForm;
 import com.videorental.dtos.client.ClientDto;
 import com.videorental.dtos.movie.MovieDto;
 import com.videorental.services.client.ClientService;
@@ -31,6 +30,7 @@ class RentedMovieEditController {
     private final ClientService clientService;
     private final MovieService movieService;
     private final RentedMovieValidator rentedMovieValidator;
+
 
     @Autowired
     private RentedMovieEditController(RentedMovieValidator rentedMovieValidator,
@@ -97,7 +97,7 @@ class RentedMovieEditController {
     @GetMapping("/delete")
     private String deleteEmployee(@RequestParam(P_RENTAL_ID) Long id) {
 
-        movieService.deleteById(id);
+        rentedMovieService.deleteById(id);
 
         return "redirect:" + RENTAL_LIST_URL;
     }

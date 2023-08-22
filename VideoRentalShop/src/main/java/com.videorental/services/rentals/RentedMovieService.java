@@ -2,6 +2,7 @@ package com.videorental.services.rentals;
 
 import com.videorental.controllers.rentals.RentedMovieForm;
 import com.videorental.dtos.rentals.RentedMovieDto;
+import com.videorental.dtos.rentals.RentedMovieSimpleDto;
 import com.videorental.entities.rentals.RentedMovie;
 import com.videorental.queries.rentals.RentedMovieQueries;
 import com.videorental.repositories.rentals.RentedMovieRepository;
@@ -38,6 +39,11 @@ public class RentedMovieService {
     public List<RentedMovie> getAll() {
 
         return rentedMovieQueries.getAll();
+    }
+
+    public List<RentedMovieSimpleDto> getAllRentedMoviesSimpleDto() {
+
+        return rentedMovieQueries.getAllRentedMoviesSimpleDto();
     }
 
     public void addNewRentedMovie(RentedMovieForm rentedMovieForm) {

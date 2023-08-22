@@ -3,8 +3,10 @@ package com.videorental.services.movie;
 import com.videorental.controllers.movie.MovieForm;
 import com.videorental.dtos.movie.MovieDto;
 import com.videorental.entities.movie.Movie;
+import com.videorental.entities.rentals.RentedMovie;
 import com.videorental.queries.movie.MovieQueries;
 import com.videorental.repositories.movie.MovieRepository;
+import com.videorental.services.rentals.RentedMovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -16,16 +18,21 @@ public class MovieService {
 
     private final MovieQueries movieQueries;
     private final MovieRepository movieRepository;
+    private final RentedMovieService rentedMovieService;
 
 
     @Autowired
-    private MovieService(MovieQueries movieQueries, MovieRepository movieRepository) {
+    private MovieService(MovieQueries movieQueries,
+        MovieRepository movieRepository,
+        RentedMovieService rentedMovieService) {
 
         Assert.notNull(movieQueries, "movieQueries must not be null");
-        Assert.notNull(movieRepository, "movieRepository");
+        Assert.notNull(movieRepository, "movieRepository must not be null");
+        Assert.notNull(rentedMovieService, "rentedMovieService must not be null");
 
         this.movieQueries = movieQueries;
         this.movieRepository = movieRepository;
+        this.rentedMovieService = rentedMovieService;
     }
 
 
@@ -59,5 +66,14 @@ public class MovieService {
         movie.setPrice(movieForm.getPrice());
 
         movieRepository.saveOrUpdate(movie);
+    }
+
+    public boolean isMovieRented(Long id) {
+
+        List<RentedMovie> rentals = rentedMovieService.getAll();
+
+        return rentals.stream()
+                .anyMatch(rental ->
+                        rental.getMovieId().equals(id));
     }
 }

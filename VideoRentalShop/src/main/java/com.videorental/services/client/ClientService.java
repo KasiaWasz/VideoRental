@@ -32,6 +32,11 @@ public class ClientService {
         this.clientRepository = clientRepository;
     }
 
+    public List<Client> getAll() {
+
+        return clientQueries.getAll();
+    }
+
     public List<ClientDetailDto> getAllClientsDetailDto() {
 
         return clientQueries.getAllClientsDetailsDto();

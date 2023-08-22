@@ -1,19 +1,16 @@
 package com.videorental.queries.rentals;
 
 import com.videorental.dtos.rentals.RentedMovieDto;
+import com.videorental.dtos.rentals.RentedMovieSimpleDto;
 import com.videorental.entities.rentals.RentedMovie;
 import com.videorental.queries.AbstractQueries;
 import com.videorental.queries.client.ClientQueries;
 import com.videorental.queries.movie.MovieQueries;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import java.util.List;
 
 @Service
@@ -36,7 +33,6 @@ class RentedMovieQueriesImpl extends AbstractQueries<RentedMovie> implements Ren
     }
 
 
-    @Override
     public List<RentedMovieDto> getAllRentedMoviesDto() {
 
         return getAll().stream()
@@ -50,30 +46,16 @@ class RentedMovieQueriesImpl extends AbstractQueries<RentedMovie> implements Ren
                 .toList();
     }
 
-    @Override
-    public List<RentedMovieDto> getMoviesByClientId(Long clientId) {
 
-        Assert.notNull(clientId, "clientId must not be null");
+    public List<RentedMovieSimpleDto> getAllRentedMoviesSimpleDto() {
 
-        try (Session session = sessionFactory.openSession()) {
-
-            CriteriaBuilder cb = session.getCriteriaBuilder();
-            CriteriaQuery<RentedMovie> cq = cb.createQuery(RentedMovie.class);
-            Root<RentedMovie> root = cq.from(RentedMovie.class);
-
-            cq.select(root)
-                    .where(cb.equal(root.get("clientId"), clientId));
-
-            return session.createQuery(cq)
-                    .getResultList().stream()
-                    .map(rentedMovie -> new RentedMovieDto(
+        return getAll().stream()
+                .map(rentedMovie -> new RentedMovieSimpleDto(
                         rentedMovie.getId(),
-                        clientQueries.getClientDetailDtoById(rentedMovie.getClientId()).getFirstName(),
-                        clientQueries.getClientDetailDtoById(rentedMovie.getClientId()).getLastName(),
-                        movieQueries.getById(rentedMovie.getMovieId()).getName(),
+                        rentedMovie.getClientId(),
+                        rentedMovie.getMovieId(),
                         rentedMovie.getRentDate()
-                    ))
-                    .toList();
-        }
+                ))
+                .toList();
     }
 }

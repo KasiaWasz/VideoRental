@@ -1,6 +1,7 @@
 package com.videorental.queries.rentals;
 
 import com.videorental.dtos.rentals.RentedMovieDto;
+import com.videorental.dtos.rentals.RentedMovieSimpleDto;
 import com.videorental.entities.rentals.RentedMovie;
 
 import java.util.List;
@@ -16,5 +17,6 @@ public interface RentedMovieQueries {
 
     List<RentedMovieDto> getAllRentedMoviesDto();
 
-    List<RentedMovieDto> getMoviesByClientId(Long clientId);
+    List<RentedMovieSimpleDto> getAllRentedMoviesSimpleDto();
+
 }
