@@ -58,12 +58,6 @@ class MovieEditController {
         return movieFormFactory.create(id);
     }
 
-    @ModelAttribute(M_EDIT_FORM)
-    private boolean isMovieRented(Long id) {
-
-        return movieService.isMovieRented(id);
-    }
-
     @GetMapping
     private String showMovieForm() {
 
@@ -87,11 +81,11 @@ class MovieEditController {
     @GetMapping("/delete")
     private String deleteEmployee(@RequestParam(P_MOVIE_ID) Long id) {
 
-        boolean movieRented = isMovieRented(id);
+        boolean movieRented = movieService.isMovieRented(id);
 
-        if (movieRented) {
-            return V_ERROR_RENTED;
-        }
+       if (movieRented) {
+           return V_ERROR_RENTED;
+      }
 
         movieService.deleteById(id);
         return "redirect:" + MOVIE_LIST_URL;
