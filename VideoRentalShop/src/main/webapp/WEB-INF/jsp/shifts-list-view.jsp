@@ -7,6 +7,23 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
     <title>Zmiany</title>
+<style>
+
+    table{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width:50%
+    }
+
+    table{
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+    body{
+    text-align: center;
+    }
+</style>
 </head>
 <body>
     <h1>Lista dyżurów</h1>
