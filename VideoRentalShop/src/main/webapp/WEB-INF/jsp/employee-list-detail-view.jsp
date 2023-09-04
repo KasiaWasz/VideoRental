@@ -7,6 +7,25 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
     <title>Lista pracowników</title>
+
+<style>
+    table{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+    th, td{
+    border: 1px solid #ddd;
+    padding: 8px;
+    }
+
+    body{
+    text-align: center;
+    }
+</style>
 </head>
 <body>
     <h1>Lista pracowników</h1>

@@ -7,8 +7,12 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/2.7.11/fcf32e175b048ec937da6491c1896a2d06675637/spring-boot-configuration-processor-2.7.11.jar" />
         </processorPath>
-        <module name="VideoRentalShop.VideoRentalShop.main" />
+        <module name="VideoRentalShop.VideoRentalShop.main~1" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="VideoRentalShop.VideoRentalShop.main" target="17" />
+      <module name="VideoRentalShop.VideoRentalShop.test" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
