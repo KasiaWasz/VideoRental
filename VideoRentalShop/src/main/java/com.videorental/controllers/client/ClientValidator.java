@@ -11,7 +11,7 @@ import static java.lang.Character.isLowerCase;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
 @Component
-class ClientValidator implements Validator {
+public class ClientValidator implements Validator {
 
     private static final String FIRSTNAME_LASTNAME_REGEX = "^[a-zA-Z-'ąćęłńóśźżĄĆĘŁŃÓŚŹŻ ]+$";
     private static final String PHONE_NUMBER_REGEX = "^\\d{9}$";
