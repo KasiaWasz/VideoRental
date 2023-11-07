@@ -15,6 +15,7 @@ import java.util.List;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
 @Component
+public
 class RentedMovieValidator implements Validator {
 
     private static final String E_FIELD_REQUIRED = "field.required";
