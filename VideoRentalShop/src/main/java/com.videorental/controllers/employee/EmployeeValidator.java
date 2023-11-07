@@ -13,6 +13,7 @@ import static java.lang.Character.isLowerCase;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
 @Component
+public
 class EmployeeValidator implements Validator {
 
     private static final String FIRSTNAME_LASTNAME_REGEX = "^[a-zA-Z-'ąćęłńóśźżĄĆĘŁŃÓŚŹŻ ]+$";

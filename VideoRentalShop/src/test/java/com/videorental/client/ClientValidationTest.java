@@ -1,4 +1,4 @@
-package com.example.VideoRentalShop;
+package com.videorental.client;
 
 import com.videorental.controllers.client.ClientForm;
 import com.videorental.controllers.client.ClientValidator;
@@ -42,24 +42,6 @@ class ClientValidationTest {
     }
 
     @Test
-    void shouldLastNameBeInvalid() throws Exception {
-
-        //given
-        clientForm.setFirstName("Test");
-        clientForm.setLastName("11Test");
-        clientForm.setRegistrationDate("2023-06-01");
-        clientForm.setPhoneNumber("111111111");
-        clientForm.setEmail("test@gmail.com");
-
-        //when
-        clientValidator.validate(clientForm, errors);
-
-        //then
-        assertThat(errors.hasFieldErrors("lastName")).isTrue();
-        assertThat(errors.getFieldErrorCount()).isEqualTo(1);
-    }
-
-    @Test
     void shouldCatchEmptyFirstName() throws Exception {
 
         //given
@@ -74,6 +56,24 @@ class ClientValidationTest {
 
         //then
         assertThat(errors.hasFieldErrors("firstName")).isTrue();
+        assertThat(errors.getFieldErrorCount()).isEqualTo(1);
+    }
+
+    @Test
+    void shouldLastNameBeInvalid() throws Exception {
+
+        //given
+        clientForm.setFirstName("Test");
+        clientForm.setLastName("11Test");
+        clientForm.setRegistrationDate("2023-06-01");
+        clientForm.setPhoneNumber("111111111");
+        clientForm.setEmail("test@gmail.com");
+
+        //when
+        clientValidator.validate(clientForm, errors);
+
+        //then
+        assertThat(errors.hasFieldErrors("lastName")).isTrue();
         assertThat(errors.getFieldErrorCount()).isEqualTo(1);
     }
 
@@ -150,7 +150,7 @@ class ClientValidationTest {
     }
 
     @Test
-    void shouldvalidateClient() throws Exception {
+    void shouldValidateClient() throws Exception {
 
         //given
         clientForm.setFirstName("Test");

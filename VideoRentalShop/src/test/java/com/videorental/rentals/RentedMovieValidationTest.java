@@ -1,4 +1,4 @@
-package com.example.VideoRentalShop;
+package com.videorental.rentals;
 
 import com.videorental.controllers.rentals.RentedMovieForm;
 import com.videorental.controllers.rentals.RentedMovieValidator;
