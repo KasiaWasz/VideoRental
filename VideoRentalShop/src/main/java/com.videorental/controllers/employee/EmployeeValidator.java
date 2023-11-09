@@ -1,6 +1,5 @@
 package com.videorental.controllers.employee;
 
-import com.videorental.controllers.employee.EmployeeForm;
 import com.videorental.entities.employee.Role;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -14,7 +13,7 @@ import static java.lang.Character.isLowerCase;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
 @Component
-class EmployeeValidator implements Validator {
+public class EmployeeValidator implements Validator {
 
     private static final String FIRSTNAME_LASTNAME_REGEX = "^[a-zA-Z-'ąćęłńóśźżĄĆĘŁŃÓŚŹŻ ]+$";
     private static final String PHONE_NUMBER_REGEX = "^\\d{9}$";

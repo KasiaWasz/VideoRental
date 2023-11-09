@@ -18,7 +18,7 @@ import java.util.Objects;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
 @Component
-class ShiftValidator implements Validator {
+public class ShiftValidator implements Validator {
 
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private static final String E_FIELD_REQUIRED = "field.required";

@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
 @Component
-class MovieValidator implements Validator {
+public class MovieValidator implements Validator {
 
     private static final String E_FIELD_REQUIRED = "field.required";
     private static final String E_PRICE_INVALID = "price.invalid";
