@@ -1,4 +1,4 @@
-package com.videorental;
+package com.videorental.employee;
 
 import com.videorental.controllers.employee.EmployeeForm;
 import com.videorental.controllers.employee.EmployeeValidator;
