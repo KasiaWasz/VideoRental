@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class EmployeeValidationTest {
+class EmployeeValidationTest {
 
     private EmployeeValidator employeeValidator;
     private EmployeeForm employeeForm;

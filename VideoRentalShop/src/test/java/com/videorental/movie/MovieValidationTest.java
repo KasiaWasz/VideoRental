@@ -10,7 +10,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import java.math.BigDecimal;
 
-public class MovieValidationTest {
+class MovieValidationTest {
 
     private MovieValidator movieValidator;
     private MovieForm movieForm;
