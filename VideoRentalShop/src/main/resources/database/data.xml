@@ -27,12 +27,12 @@
     <changeSet id="add-movies" author="kasia">
         <sql dbms="postgresql" splitStatements="true" stripComments="true">
             <![CDATA[
-                INSERT INTO movie (name, price)
-                VALUES('Rocky', 10.99),
-                      ('Władca Pierścieni Drużyna Pierścienia', 10.99),
-                      ('Dziedzictwo', 6.00),
-                      ('Władca Pierścieni Dwie Wieże', 10.99),
-                      ('Władca Pierścieni Powrót Króla', 10.99);
+                INSERT INTO movie (name, price, last_update_date, is_on_sale)
+                VALUES('Rocky', 10.99, '2023-11-14', FALSE),
+                      ('Władca Pierścieni Drużyna Pierścienia', 10.99, '2023-11-14', FALSE),
+                      ('Dziedzictwo', 10.99, '2023-11-14', FALSE),
+                      ('Władca Pierścieni Dwie Wieże', 10.99, '2023-11-14', FALSE),
+                      ('Władca Pierścieni Powrót Króla', 5.99, '2023-11-07', TRUE);
             ]]>
         </sql>
     </changeSet>
