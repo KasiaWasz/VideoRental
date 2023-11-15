@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Service
@@ -64,16 +67,42 @@ public class MovieService {
 
         movie.setName(movieForm.getName());
         movie.setPrice(movieForm.getPrice());
+        movie.setLastUpdateDate(LocalDate.now());
 
         movieRepository.saveOrUpdate(movie);
     }
 
     public boolean isMovieRented(Long id) {
 
+        Assert.notNull(id, "id must not be null");
+
         List<RentedMovie> rentals = rentedMovieService.getAll();
 
         return rentals.stream()
                 .anyMatch(rental ->
                         rental.getMovieId().equals(id));
+    }
+
+    public void setMoviePrice() {
+
+        Long movieId = movieQueries.getRandomMovieId();
+        Movie movie = movieQueries.getById(movieId);
+        Movie movieOnSale = movieQueries.getMovieOnSale();
+        BigDecimal initialPrice = BigDecimal.valueOf(10.99);
+
+        LocalDate currentTime = LocalDate.now();
+        long weeksSinceLastPromotion = ChronoUnit.WEEKS.between(movieOnSale.getLastUpdateDate(), currentTime);
+
+        if (weeksSinceLastPromotion >= 1) {
+
+            movieOnSale.setPrice(initialPrice);
+            movieOnSale.setOnSale(false);
+            movieOnSale.setLastUpdateDate(currentTime);
+            movieRepository.saveOrUpdate(movieOnSale);
+        }
+        movie.setPrice(BigDecimal.valueOf(5.99));
+        movie.setOnSale(true);
+        movie.setLastUpdateDate(currentTime);
+        movieRepository.saveOrUpdate(movie);
     }
 }

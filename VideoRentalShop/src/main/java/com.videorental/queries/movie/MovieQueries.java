@@ -15,4 +15,8 @@ public interface MovieQueries {
     Optional<Movie> findById(Long id);
 
     List<MovieDto> getAllMoviesDto();
+
+    Long getRandomMovieId();
+
+    Movie getMovieOnSale();
 }
