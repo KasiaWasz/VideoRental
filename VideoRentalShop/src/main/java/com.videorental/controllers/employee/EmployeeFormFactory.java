@@ -32,6 +32,8 @@ class EmployeeFormFactory {
                 employee.getId(),
                 employee.getFirstName(),
                 employee.getLastName(),
+                employee.getEmail(),
+                employee.getPassword(),
                 employee.getJoinDate().format(DATE_FORMAT),
                 employee.getPhoneNumber(),
                 employee.getHourSalary(),

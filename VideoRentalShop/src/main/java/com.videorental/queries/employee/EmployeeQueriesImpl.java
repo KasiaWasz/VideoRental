@@ -27,8 +27,8 @@ class EmployeeQueriesImpl extends AbstractQueries<Employee> implements EmployeeQ
 
     @Autowired
     EmployeeQueriesImpl(SessionFactory sessionFactory,
-        EmployeeSimpleDtoFactory employeeSimpleDtoFactory,
-        EmployeeDetailDtoFactory employeeDetailDtoFactory) {
+                        EmployeeSimpleDtoFactory employeeSimpleDtoFactory,
+                        EmployeeDetailDtoFactory employeeDetailDtoFactory) {
 
         super(sessionFactory, Employee.class);
 
@@ -50,6 +50,25 @@ class EmployeeQueriesImpl extends AbstractQueries<Employee> implements EmployeeQ
                         employee.getPhoneNumber()
                 ))
                 .toList();
+    }
+
+    public Optional<Employee> findByEmail(String email) {
+
+        Assert.notNull(email, "email must not be null");
+
+        try (Session session = sessionFactory.openSession()) {
+
+            CriteriaBuilder cb = session.getCriteriaBuilder();
+            CriteriaQuery<Employee> cq = cb.createQuery(Employee.class);
+            Root<Employee> root = cq.from(Employee.class);
+
+            cq.select(root)
+                    .where(cb.equal(root.get("email"), email));
+
+            Employee employee = session.createQuery(cq).uniqueResult();
+
+            return Optional.ofNullable(employee);
+        }
     }
 
     public EmployeeDetailDto getEmployeeDetailDtoById(Long id) {
@@ -123,8 +142,7 @@ class EmployeeQueriesImpl extends AbstractQueries<Employee> implements EmployeeQ
             if (employee != null) {
 
                 return employeeDetailDtoFactory.create(employee);
-            }
-            else {
+            } else {
 
                 return null;
             }

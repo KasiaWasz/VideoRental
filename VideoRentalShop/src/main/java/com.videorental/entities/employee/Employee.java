@@ -1,5 +1,6 @@
 package com.videorental.entities.employee;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.util.Assert;
 
 import javax.persistence.*;
@@ -22,6 +23,13 @@ public class Employee implements com.videorental.entities.Entity{
     private String lastName;
 
     @Column
+    private String email;
+
+    @Column
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private String password;
+
+    @Column
     private LocalDate joinDate;
 
     @Column
@@ -37,6 +45,8 @@ public class Employee implements com.videorental.entities.Entity{
     public Employee(
         String firstName,
         String lastName,
+        String email,
+        String password,
         LocalDate joinDate,
         String phoneNumber,
         BigDecimal hourSalary,
@@ -44,6 +54,8 @@ public class Employee implements com.videorental.entities.Entity{
 
         Assert.notNull(firstName, "firstName must not be null");
         Assert.notNull(lastName, "lastName must not be null");
+        Assert.notNull(email, "email must not be null");
+        Assert.notNull(password, "password must not be null");
         Assert.notNull(joinDate, "joinDate must not be null");
         Assert.notNull(phoneNumber, "phoneNumber must not be null");
         Assert.notNull(hourSalary, "hourSalary must not be null");
@@ -51,6 +63,8 @@ public class Employee implements com.videorental.entities.Entity{
 
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
+        this.password = password;
         this.joinDate = joinDate;
         this.phoneNumber = phoneNumber;
         this.hourSalary = hourSalary;
@@ -82,6 +96,22 @@ public class Employee implements com.videorental.entities.Entity{
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public LocalDate getJoinDate() {
@@ -121,12 +151,12 @@ public class Employee implements com.videorental.entities.Entity{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Objects.equals(id, employee.id) && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(joinDate, employee.joinDate) && Objects.equals(phoneNumber, employee.phoneNumber) && Objects.equals(hourSalary, employee.hourSalary) && role == employee.role;
+        return Objects.equals(id, employee.id) && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(email, employee.email) && Objects.equals(password, employee.password) && Objects.equals(joinDate, employee.joinDate) && Objects.equals(phoneNumber, employee.phoneNumber) && Objects.equals(hourSalary, employee.hourSalary) && role == employee.role;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, joinDate, phoneNumber, hourSalary, role);
+        return Objects.hash(id, firstName, lastName, email, password, joinDate, phoneNumber, hourSalary, role);
     }
 
     @Override
@@ -135,6 +165,8 @@ public class Employee implements com.videorental.entities.Entity{
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
                 ", joinDate=" + joinDate +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", hourSalary=" + hourSalary +

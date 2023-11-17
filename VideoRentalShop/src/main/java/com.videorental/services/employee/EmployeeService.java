@@ -8,6 +8,7 @@ import com.videorental.entities.employee.Employee;
 import com.videorental.queries.employee.EmployeeQueries;
 import com.videorental.repositories.employee.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -20,15 +21,17 @@ public class EmployeeService {
 
     private final EmployeeQueries employeeQueries;
     private final EmployeeRepository employeeRepository;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    private EmployeeService(EmployeeQueries employeeQueries, EmployeeRepository employeeRepository) {
+    private EmployeeService(EmployeeQueries employeeQueries, EmployeeRepository employeeRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
 
         Assert.notNull(employeeQueries, "employeeQueries must not be null");
         Assert.notNull(employeeRepository, "employeeRepository must not be null");
 
         this.employeeQueries = employeeQueries;
         this.employeeRepository = employeeRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     public List<EmployeeDto> getAllEmployeesDto() {
@@ -78,6 +81,8 @@ public class EmployeeService {
 
         employee.setFirstName(employeeForm.getFirstName());
         employee.setLastName(employeeForm.getLastName());
+        employee.setEmail(employeeForm.getEmail());
+        employee.setPassword(bCryptPasswordEncoder.encode(employeeForm.getPassword()));
         employee.setPhoneNumber(employeeForm.getPhoneNumber());
         employee.setJoinDate(LocalDate.parse(employeeForm.getJoinDate()));
         employee.setRole(employeeForm.getRole());
@@ -89,6 +94,8 @@ public class EmployeeService {
         return new Employee(
                 employeeForm.getFirstName(),
                 employeeForm.getLastName(),
+                employeeForm.getEmail(),
+                bCryptPasswordEncoder.encode(employeeForm.getPassword()),
                 LocalDate.parse(employeeForm.getJoinDate()),
                 employeeForm.getPhoneNumber(),
                 employeeForm.getHourSalary(),
