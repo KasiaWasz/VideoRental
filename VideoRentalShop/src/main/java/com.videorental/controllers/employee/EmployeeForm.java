@@ -10,6 +10,8 @@ public class EmployeeForm {
 
     static final String F_FIRST_NAME = "firstName";
     static final String F_LAST_NAME = "lastName";
+    static final String F_EMAIL = "email";
+    static final String F_PASSWORD = "password";
     static final String F_JOIN_DATE ="joinDate";
     static final String F_PHONE_NUMBER = "phoneNumber";
     static final String F_ROLE = "role";
@@ -20,6 +22,10 @@ public class EmployeeForm {
     private String firstName;
 
     private String lastName;
+
+    private String email;
+
+    private String password;
 
     private String joinDate;
 
@@ -33,6 +39,8 @@ public class EmployeeForm {
     public EmployeeForm(Long id,
                     String firstName,
                     String lastName,
+                    String email,
+                    String password,
                     String joinDate,
                     String phoneNumber,
                     BigDecimal hourSalary,
@@ -41,6 +49,8 @@ public class EmployeeForm {
         Assert.notNull(id, "id must not be null");
         Assert.notNull(firstName, "firstName must not be null");
         Assert.notNull(lastName, "lastName must not be null");
+        Assert.notNull(email, "email must not be null");
+        Assert.notNull(password, "password must not be null");
         Assert.notNull(joinDate, "joinDate must not be null");
         Assert.notNull(phoneNumber, "phoneNumber must not be null");
         Assert.notNull(hourSalary, "hourSalary must not be null");
@@ -49,6 +59,8 @@ public class EmployeeForm {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
+        this.password = password;
         this.joinDate = joinDate;
         this.phoneNumber = phoneNumber;
         this.hourSalary = hourSalary;
@@ -82,6 +94,22 @@ public class EmployeeForm {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getJoinDate() {

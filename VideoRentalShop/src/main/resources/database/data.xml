@@ -7,9 +7,9 @@
     <changeSet id="add-employees" author="kasia">
         <sql dbms="postgresql" splitStatements="true" stripComments="true">
             <![CDATA[
-                INSERT INTO employee (first_name, last_name, phone_number, join_date, role, hour_salary)
-                VALUES('Anna', 'Nowak', '123456789', '2022-09-01', 0, 40.00),
-                      ('Michał', 'Kruk', '123456789', '2022-09-01', 1, 40.00);
+                INSERT INTO employee (first_name, last_name, email, password, phone_number, join_date, role, hour_salary)
+                VALUES('Anna', 'Nowak', 'a.nowak@gmail.com', '123', '123456789', '2022-09-01', 0, 40.00),
+                      ('Michał', 'Kruk', 'm.kruk@gmail.com', '1234', '123456789', '2022-09-01', 1, 40.00);
             ]]>
         </sql>
     </changeSet>

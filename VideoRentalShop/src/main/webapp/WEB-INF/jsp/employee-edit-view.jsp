@@ -43,6 +43,16 @@
                 <td><form:errors path = "lastName" cssClass="error"/></td>
             </tr>
             <tr>
+                <td><form:label path = "email">Email</form:label></td>
+                <td><form:input path = "email" /></td>
+                <td><form:errors path = "email" cssClass="error"/></td>
+            </tr>
+            <tr>
+                <td><form:label path = "password">Hasło</form:label></td>
+                <td><form:input path = "password" /></td>
+                <td><form:errors path = "password" cssClass="error"/></td>
+            </tr>
+            <tr>
                 <td><form:label path = "joinDate">Data dołączenia</form:label></td>
                 <td><form:input path = "joinDate" type = "date"
                 min = "2022-01-01" /> </td>
