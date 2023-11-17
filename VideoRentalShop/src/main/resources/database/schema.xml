@@ -15,7 +15,7 @@
                     password VARCHAR(255) NOT NULL,
                     phone_number VARCHAR(255) NOT NULL,
                     join_date DATE NOT NULL,
-                    role SMALLINT NOT NULL,
+                    role VARCHAR(255) NOT NULL,
                     hour_salary DECIMAL(10,2) NOT NULL
                 );
             ]]>

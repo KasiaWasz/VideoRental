@@ -39,7 +39,7 @@ public class Employee implements com.videorental.entities.Entity{
     private BigDecimal hourSalary;
 
     @Column
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private Role role;
 
     public Employee(
