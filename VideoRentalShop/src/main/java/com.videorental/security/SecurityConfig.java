@@ -17,6 +17,11 @@ import org.springframework.util.Assert;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    private static final String MOVIE_URL = "/movie-list";
+    private static final String EMPLOYEE_EDIT_URL = "/employee-edit";
+    private static final String SHIFT_EDIT_URL = "/shift-edit";
+    private static final String EMPLOYEES_DETAILS_URL = "/employee-list/employees-details";
+    private static final String EMPLOYEE_DETAIL_URL = "/employee-list/details";
     private final UserDetailsService customUserDetailService;
 
 
@@ -34,8 +39,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/movie-list").permitAll()
-                .antMatchers("/employee-edit").hasRole("MANAGER")
+                .antMatchers(MOVIE_URL).permitAll()
+                .antMatchers(EMPLOYEE_EDIT_URL, SHIFT_EDIT_URL, EMPLOYEES_DETAILS_URL, EMPLOYEE_DETAIL_URL).hasRole("MANAGER")
                 .and()
                 .formLogin().permitAll()
                 .and()

@@ -43,8 +43,6 @@ public class CustomUserDetailService implements UserDetailsService {
                 .roles(employee.getRole().toString())
                 .build();
 
-        System.out.println("User roles: " + userDetails.getAuthorities());
-
         return userDetails;
     }
 }
