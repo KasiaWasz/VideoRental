@@ -17,6 +17,21 @@ import org.springframework.util.Assert;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    private static final String MOVIE_LIST_URL = "/movie-list";
+    private static final String MOVIE_EDIT_URL = "/movie-edit";
+    private static final String CLIENT_LIST_URL = "/client-list";
+    private static final String CLIENT_DETAIL_URL = "/client-list/details";
+    private static final String CLIENT_DETAILS_URL = "/client-list/clients-details";
+    private static final String CLIENT_EDIT_URL = "/client-edit";
+    private static final String SHIFT_EDIT_URL = "/shift-edit";
+    private static final String SHIFT_LIST_URL = "/shift-list";
+    private static final String EMPLOYEE_EDIT_URL = "/employee-edit";
+    private static final String EMPLOYEE_LIST_URL = "/employee-list";
+    private static final String EMPLOYEES_DETAILS_URL = "/employee-list/employees-details";
+    private static final String EMPLOYEE_DETAIL_URL = "/employee-list/details";
+    private static final String RENTAL_LIST_URL = "/rental-list";
+    private static final String RENTAL_FEE_LIST_URL = "/rental-fee-list";
+    private static final String RENTAL_EDIT_URL = "/rental-edit";
     private final UserDetailsService customUserDetailService;
 
 
@@ -34,8 +49,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/movie-list").permitAll()
-                .antMatchers("/employee-edit").hasRole("MANAGER")
+                .antMatchers(MOVIE_LIST_URL).permitAll()
+                .antMatchers(EMPLOYEE_EDIT_URL, SHIFT_EDIT_URL, EMPLOYEES_DETAILS_URL, EMPLOYEE_DETAIL_URL)
+                .hasRole("MANAGER")
+                .antMatchers(EMPLOYEE_LIST_URL, SHIFT_LIST_URL, CLIENT_LIST_URL, CLIENT_DETAIL_URL,
+                        CLIENT_DETAILS_URL, CLIENT_EDIT_URL, MOVIE_EDIT_URL, RENTAL_EDIT_URL,
+                        RENTAL_LIST_URL, RENTAL_FEE_LIST_URL)
+                .hasAnyRole("MANAGER", "KASJER")
                 .and()
                 .formLogin().permitAll()
                 .and()
