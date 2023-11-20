@@ -4,6 +4,7 @@ import com.videorental.dtos.shift.ShiftDto;
 import com.videorental.dtos.shift.ShiftSimpleDto;
 import com.videorental.entities.shift.Shift;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,4 +15,5 @@ public interface ShiftQueries {
     Optional<Shift> findById(Long id);
     List<ShiftDto> getAllShiftDto();
     List<ShiftSimpleDto> getShiftsByEmployeeId(Long employeeId);
+    List<ShiftSimpleDto> getShiftsByDate(LocalDate startDate, LocalDate endDate);
 }
