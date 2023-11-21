@@ -29,5 +29,7 @@
         <li><a href="/rental-list">Zobacz wszystkie wypożyczenia</a></li>
         <li><a href="/rental-fee-list">Zobacz opłaty za wypożyczenia</a></li>
         <li><a href="/rental-edit">Wypożycz film</a></li>
+    <h4>Wynagrodzenia</h4>
+        <li><a href="/payroll-list">Podlicz wynagrodzenia</a></li>
     </body>
     </html>
