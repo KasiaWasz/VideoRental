@@ -32,6 +32,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String RENTAL_LIST_URL = "/rental-list";
     private static final String RENTAL_FEE_LIST_URL = "/rental-fee-list";
     private static final String RENTAL_EDIT_URL = "/rental-edit";
+    private static final String PAYROLL_LIST_URL = "/payroll-list";
+
     private final UserDetailsService customUserDetailService;
 
 
@@ -50,7 +52,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers(MOVIE_LIST_URL).permitAll()
-                .antMatchers(EMPLOYEE_EDIT_URL, SHIFT_EDIT_URL, EMPLOYEES_DETAILS_URL, EMPLOYEE_DETAIL_URL)
+                .antMatchers(EMPLOYEE_EDIT_URL, SHIFT_EDIT_URL, EMPLOYEES_DETAILS_URL, EMPLOYEE_DETAIL_URL,
+                        PAYROLL_LIST_URL)
                 .hasRole("MANAGER")
                 .antMatchers(EMPLOYEE_LIST_URL, SHIFT_LIST_URL, CLIENT_LIST_URL, CLIENT_DETAIL_URL,
                         CLIENT_DETAILS_URL, CLIENT_EDIT_URL, MOVIE_EDIT_URL, RENTAL_EDIT_URL,

@@ -13,14 +13,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 
 @RequestMapping("/payroll-list")
 @Controller
 class PayrollListController {
 
     private static final String M_PAYROLL_LIST = "payrolls";
-    private static final String V_PAYROLL_LIST = "payroll-view";
+    private static final String V_PAYROLL_LIST = "payroll-list-view";
     private final PayrollService payrollService;
 
 
