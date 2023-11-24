@@ -97,6 +97,7 @@
                         client_id BIGINT NOT NULL,
                         movie_id BIGINT NOT NULL,
                         start_rent_date DATE NOT NULL,
+                        end_rent_date DATE NOT NULL,
                         number_of_days_rented BIGINT NOT NULL,
                         total_price DECIMAL(10,2) NOT NULL,
                         CONSTRAINT fk_client_id

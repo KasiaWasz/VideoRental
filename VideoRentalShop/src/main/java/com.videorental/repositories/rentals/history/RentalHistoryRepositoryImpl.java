@@ -1,4 +1,4 @@
-package com.videorental.repositories.history;
+package com.videorental.repositories.rentals.history;
 
 import com.videorental.entities.rentals.history.RentalHistory;
 
@@ -12,7 +12,7 @@ class RentalHistoryRepositoryImpl extends AbstractRepository<RentalHistory> impl
 
 
     @Autowired
-    public RentalHistoryRepositoryImpl(SessionFactory sessionFactory) {
+    RentalHistoryRepositoryImpl(SessionFactory sessionFactory) {
         super(sessionFactory, RentalHistory.class);
     }
 }
