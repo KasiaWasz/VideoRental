@@ -23,7 +23,7 @@ public class RentalHistory implements com.videorental.entities.Entity {
     @Column
     private LocalDate endRentDate;
     @Column
-    private BigDecimal numberOfRentedDays;
+    private BigDecimal numberOfDaysRented;
     @Column
     private BigDecimal totalPrice;
 
@@ -32,21 +32,21 @@ public class RentalHistory implements com.videorental.entities.Entity {
          Long movieId,
          LocalDate startRentDate,
          LocalDate endRentDate,
-         BigDecimal numberOfRentedDays,
+         BigDecimal numberOfDaysRented,
          BigDecimal totalPrice) {
 
         Assert.notNull(clientId,"clientId should not be null");
         Assert.notNull(movieId, "movieId should not be null");
         Assert.notNull(startRentDate, "startRentDate should not be null");
         Assert.notNull(endRentDate, "endRentDate should not be null");
-        Assert.notNull(numberOfRentedDays, "numberOfRentedDays must not be null");
+        Assert.notNull(numberOfDaysRented, "numberOfRentedDays must not be null");
         Assert.notNull(totalPrice, "totalPrice must not be null");
 
         this.clientId = clientId;
         this.movieId = movieId;
         this.startRentDate = startRentDate;
         this.endRentDate = endRentDate;
-        this.numberOfRentedDays = numberOfRentedDays;
+        this.numberOfDaysRented = numberOfDaysRented;
         this.totalPrice = totalPrice;
     }
 
@@ -97,12 +97,12 @@ public class RentalHistory implements com.videorental.entities.Entity {
         this.endRentDate = endRentDate;
     }
 
-    public BigDecimal getNumberOfRentedDays() {
-        return numberOfRentedDays;
+    public BigDecimal getNumberOfDaysRented() {
+        return numberOfDaysRented;
     }
 
-    public void setNumberOfRentedDays(BigDecimal numberOfRentedDays) {
-        this.numberOfRentedDays = numberOfRentedDays;
+    public void setNumberOfDaysRented(BigDecimal numberOfDaysRented) {
+        this.numberOfDaysRented = numberOfDaysRented;
     }
 
     public BigDecimal getTotalPrice() {
@@ -118,12 +118,12 @@ public class RentalHistory implements com.videorental.entities.Entity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         RentalHistory that = (RentalHistory) o;
-        return Objects.equals(id, that.id) && Objects.equals(clientId, that.clientId) && Objects.equals(movieId, that.movieId) && Objects.equals(startRentDate, that.startRentDate) && Objects.equals(endRentDate, that.endRentDate) && Objects.equals(numberOfRentedDays, that.numberOfRentedDays) && Objects.equals(totalPrice, that.totalPrice);
+        return Objects.equals(id, that.id) && Objects.equals(clientId, that.clientId) && Objects.equals(movieId, that.movieId) && Objects.equals(startRentDate, that.startRentDate) && Objects.equals(endRentDate, that.endRentDate) && Objects.equals(numberOfDaysRented, that.numberOfDaysRented) && Objects.equals(totalPrice, that.totalPrice);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, clientId, movieId, startRentDate, endRentDate, numberOfRentedDays, totalPrice);
+        return Objects.hash(id, clientId, movieId, startRentDate, endRentDate, numberOfDaysRented, totalPrice);
     }
 
     @Override
@@ -134,7 +134,7 @@ public class RentalHistory implements com.videorental.entities.Entity {
                 ", movieId=" + movieId +
                 ", startRentDate=" + startRentDate +
                 ", endRentDate=" + endRentDate +
-                ", numberOfRentedDays=" + numberOfRentedDays +
+                ", numberOfRentedDays=" + numberOfDaysRented +
                 ", totalPrice=" + totalPrice +
                 '}';
     }

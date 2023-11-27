@@ -40,7 +40,7 @@ class RentalHistoryQueriesImpl extends AbstractQueries<RentalHistory> implements
                         movieQueries.getById(rentalHistory.getMovieId()).getName(),
                         rentalHistory.getStartRentDate(),
                         rentalHistory.getEndRentDate(),
-                        rentalHistory.getNumberOfRentedDays(),
+                        rentalHistory.getNumberOfDaysRented(),
                         rentalHistory.getTotalPrice()
                 ))
                 .toList();

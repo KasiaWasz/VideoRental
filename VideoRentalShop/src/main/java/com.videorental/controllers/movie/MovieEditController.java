@@ -88,6 +88,7 @@ class MovieEditController {
       }
 
         movieService.deleteById(id);
+
         return "redirect:" + MOVIE_LIST_URL;
     }
 }

@@ -6,6 +6,7 @@ import com.videorental.dtos.rentals.RentedMovieSimpleDto;
 import com.videorental.entities.rentals.RentedMovie;
 import com.videorental.queries.rentals.RentedMovieQueries;
 import com.videorental.repositories.rentals.RentedMovieRepository;
+import com.videorental.services.rentals.history.RentalHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -18,10 +19,12 @@ public class RentedMovieService {
 
     private final RentedMovieRepository rentedMovieRepository;
     private final RentedMovieQueries rentedMovieQueries;
+    private final RentalHistoryService rentalHistoryService;
 
 
     @Autowired
-    private RentedMovieService(RentedMovieRepository rentedMovieRepository, RentedMovieQueries rentedMovieQueries) {
+    private RentedMovieService(RentedMovieRepository rentedMovieRepository, RentedMovieQueries rentedMovieQueries, RentalHistoryService rentalHistoryService) {
+        this.rentalHistoryService = rentalHistoryService;
 
         Assert.notNull(rentedMovieRepository, "rentedMovieRepository must not be null");
         Assert.notNull(rentedMovieQueries, "rentedMovieQueries must not be null");
@@ -46,6 +49,13 @@ public class RentedMovieService {
         return rentedMovieQueries.getAllRentedMoviesSimpleDto();
     }
 
+    public RentedMovie getById(Long id) {
+
+        Assert.notNull(id, "is must not be null");
+
+        return rentedMovieQueries.getById(id);
+    }
+
     public void addNewRentedMovie(RentedMovieForm rentedMovieForm) {
 
         RentedMovie newRentedMovie = new RentedMovie(
@@ -59,6 +69,8 @@ public class RentedMovieService {
     public void deleteById(Long id) {
 
         Assert.notNull(id, "id must not be null");
+
+        rentalHistoryService.addNewRentalHistory(getById(id));
 
         rentedMovieRepository.deleteById(id);
     }
