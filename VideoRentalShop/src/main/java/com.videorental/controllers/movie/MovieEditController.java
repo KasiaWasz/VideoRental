@@ -24,12 +24,14 @@ class MovieEditController {
     private final MovieService movieService;
     private final MovieFormFactory movieFormFactory;
     private final MovieValidator movieValidator;
+    private final MovieIdValidator movieIdValidator;
 
 
     @Autowired
     private MovieEditController(MovieService movieService,
-        MovieFormFactory movieFormFactory,
-        MovieValidator movieValidator) {
+                                MovieFormFactory movieFormFactory,
+                                MovieValidator movieValidator,
+                                MovieIdValidator movieIdValidator) {
 
         Assert.notNull(movieService, "movieService must not be null");
         Assert.notNull(movieFormFactory, "movieFormFactory must not be null");
@@ -38,6 +40,7 @@ class MovieEditController {
         this.movieService = movieService;
         this.movieFormFactory = movieFormFactory;
         this.movieValidator = movieValidator;
+        this.movieIdValidator = movieIdValidator;
     }
 
 
@@ -79,15 +82,16 @@ class MovieEditController {
     }
 
     @GetMapping("/delete")
-    private String deleteEmployee(@RequestParam(P_MOVIE_ID) Long id) {
+    private String deleteMovie(@RequestParam(P_MOVIE_ID) Long id) {
 
-        boolean movieRented = movieService.isMovieRented(id);
 
-       if (movieRented) {
+       if (movieIdValidator.isMovieRented(id)) {
+
            return V_ERROR_RENTED;
       }
 
         movieService.deleteById(id);
+
         return "redirect:" + MOVIE_LIST_URL;
     }
 }

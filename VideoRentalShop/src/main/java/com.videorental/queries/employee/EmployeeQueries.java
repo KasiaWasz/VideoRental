@@ -16,6 +16,7 @@ public interface EmployeeQueries {
     List<Employee> getAll();
 
     Optional<Employee> findById(Long id);
+
     Optional<Employee> findByEmail(String email);
 
     List<EmployeeDto> getAllEmployeesDto();

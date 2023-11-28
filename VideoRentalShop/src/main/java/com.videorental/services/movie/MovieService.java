@@ -21,21 +21,17 @@ public class MovieService {
 
     private final MovieQueries movieQueries;
     private final MovieRepository movieRepository;
-    private final RentedMovieService rentedMovieService;
 
 
     @Autowired
     private MovieService(MovieQueries movieQueries,
-        MovieRepository movieRepository,
-        RentedMovieService rentedMovieService) {
+        MovieRepository movieRepository) {
 
         Assert.notNull(movieQueries, "movieQueries must not be null");
         Assert.notNull(movieRepository, "movieRepository must not be null");
-        Assert.notNull(rentedMovieService, "rentedMovieService must not be null");
 
         this.movieQueries = movieQueries;
         this.movieRepository = movieRepository;
-        this.rentedMovieService = rentedMovieService;
     }
 
 
@@ -70,17 +66,6 @@ public class MovieService {
         movie.setLastUpdateDate(LocalDate.now());
 
         movieRepository.saveOrUpdate(movie);
-    }
-
-    public boolean isMovieRented(Long id) {
-
-        Assert.notNull(id, "id must not be null");
-
-        List<RentedMovie> rentals = rentedMovieService.getAll();
-
-        return rentals.stream()
-                .anyMatch(rental ->
-                        rental.getMovieId().equals(id));
     }
 
     public void setMoviePrice() {
