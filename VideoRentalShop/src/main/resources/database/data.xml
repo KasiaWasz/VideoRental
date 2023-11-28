@@ -8,8 +8,8 @@
         <sql dbms="postgresql" splitStatements="true" stripComments="true">
             <![CDATA[
                 INSERT INTO employee (first_name, last_name, email, password, phone_number, join_date, role, hour_salary)
-                VALUES('Anna', 'Nowak', 'a.nowak@gmail.com', '123', '123456789', '2022-09-01', 'MANAGER', 40.00),
-                      ('Michał', 'Kruk', 'm.kruk@gmail.com', '1234', '123456789', '2022-09-01', 'KASJER', 40.00);
+                VALUES('Anna', 'Nowak', 'a.nowak@gmail.com', '123', '123456789', '2023-12-01', 'MANAGER', 40.00),
+                      ('Michał', 'Kruk', 'm.kruk@gmail.com', '1234', '123456789', '2022-12-01', 'KASJER', 40.00);
             ]]>
         </sql>
     </changeSet>
@@ -18,8 +18,8 @@
         <sql dbms="postgresql" splitStatements="true" stripComments="true">
             <![CDATA[
                 INSERT INTO shift (employee_id, date, hours)
-                VALUES(1, '2022-09-01', 8),
-                      (2, '2022-09-01', 6);
+                VALUES(1, '2023-12-01', 8),
+                      (2, '2023-12-01', 6);
             ]]>
         </sql>
     </changeSet>
@@ -27,12 +27,12 @@
     <changeSet id="add-movies" author="kasia">
         <sql dbms="postgresql" splitStatements="true" stripComments="true">
             <![CDATA[
-                INSERT INTO movie (name, price, last_update_date, is_on_sale)
-                VALUES('Rocky', 10.99, '2023-11-14', FALSE),
-                      ('Władca Pierścieni Drużyna Pierścienia', 10.99, '2023-11-14', FALSE),
-                      ('Dziedzictwo', 10.99, '2023-11-14', FALSE),
-                      ('Władca Pierścieni Dwie Wieże', 10.99, '2023-11-14', FALSE),
-                      ('Władca Pierścieni Powrót Króla', 5.99, '2023-11-07', TRUE);
+                INSERT INTO movie (name, price, last_update_date, is_on_sale, is_movie_active)
+                VALUES('Rocky', 10.99, '2023-11-14', FALSE, TRUE),
+                      ('Władca Pierścieni Drużyna Pierścienia', 10.99, '2023-11-14', FALSE, TRUE),
+                      ('Dziedzictwo', 10.99, '2023-11-14', FALSE, TRUE),
+                      ('Władca Pierścieni Dwie Wieże', 10.99, '2023-11-14', FALSE, TRUE),
+                      ('Władca Pierścieni Powrót Króla', 5.99, '2023-11-07', TRUE, TRUE);
             ]]>
         </sql>
     </changeSet>
@@ -41,9 +41,9 @@
         <sql dbms="postgresql" splitStatements="true" stripComments="true">
             <![CDATA[
                 INSERT INTO client (first_name, last_name, registration_date, phone_number, email)
-                VALUES('Robert', 'Kocur', '2022-10-03', 571900311, 'rkocur@gmail.com'),
-                      ('Katarzyna', 'Bijak', '2022-09-02', 522190231, 'kasiab@gmail.com'),
-                      ('Ilona', 'Szymańska', '2022-09-20', 667295050, 'ilona.szymanska@wp.com');
+                VALUES('Robert', 'Kocur', '2023-11-03', 571900311, 'rkocur@gmail.com'),
+                      ('Katarzyna', 'Bijak', '2023-11-22', 522190231, 'kasiab@gmail.com'),
+                      ('Ilona', 'Szymańska', '2023-11-20', 667295050, 'ilona.szymanska@wp.com');
             ]]>
         </sql>
     </changeSet>
@@ -52,10 +52,10 @@
         <sql dbms="postgresql" splitStatements="true" stripComments="true">
             <![CDATA[
                 INSERT INTO rented_movie (client_id, movie_id, rent_date)
-                VALUES(1, 1, '2022-09-20'),
-                      (1, 2, '2022-09-20'),
-                      (2, 3, '2022-10-03'),
-                      (3, 4, '2022-10-03');
+                VALUES(1, 1, '2023-11-24'),
+                      (1, 2, '2023-11-25'),
+                      (2, 3, '2023-11-27'),
+                      (3, 4, '2023-11-25');
             ]]>
         </sql>
     </changeSet>

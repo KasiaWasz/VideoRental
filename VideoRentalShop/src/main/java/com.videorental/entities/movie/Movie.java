@@ -27,17 +27,22 @@ public class Movie implements com.videorental.entities.Entity {
     @Column
     private boolean isOnSale;
 
-    public Movie(String name, BigDecimal price, LocalDate lastUpdateDate, boolean isOnSale) {
+    @Column
+    private boolean isMovieActive;
+
+    public Movie(String name, BigDecimal price, LocalDate lastUpdateDate, boolean isOnSale, boolean isMovieActive) {
 
         Assert.notNull(name, "name must not be null");
         Assert.notNull(price, "price must not be null");
         Assert.notNull(lastUpdateDate, "lastUpdateDate must not be null");
         Assert.notNull(isOnSale, "isOnSale must not be null");
+        Assert.notNull(isMovieActive, "isMovieActive must not be null");
 
         this.name = name;
         this.price = price;
         this.lastUpdateDate = lastUpdateDate;
         this.isOnSale = isOnSale;
+        this.isMovieActive = isMovieActive;
     }
 
     public Movie() {
@@ -83,17 +88,25 @@ public class Movie implements com.videorental.entities.Entity {
         isOnSale = onSale;
     }
 
+    public boolean isMovieActive() {
+        return isMovieActive;
+    }
+
+    public void setMovieActive(boolean movieActive) {
+        isMovieActive = movieActive;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Movie movie = (Movie) o;
-        return isOnSale == movie.isOnSale && Objects.equals(id, movie.id) && Objects.equals(name, movie.name) && Objects.equals(price, movie.price) && Objects.equals(lastUpdateDate, movie.lastUpdateDate);
+        return isOnSale == movie.isOnSale && isMovieActive == movie.isMovieActive && Objects.equals(id, movie.id) && Objects.equals(name, movie.name) && Objects.equals(price, movie.price) && Objects.equals(lastUpdateDate, movie.lastUpdateDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, price, lastUpdateDate, isOnSale);
+        return Objects.hash(id, name, price, lastUpdateDate, isOnSale, isMovieActive);
     }
 
     @Override
@@ -104,6 +117,7 @@ public class Movie implements com.videorental.entities.Entity {
                 ", price=" + price +
                 ", lastUpdateDate=" + lastUpdateDate +
                 ", isOnSale=" + isOnSale +
+                ", isMovieActive=" + isMovieActive +
                 '}';
     }
 }
