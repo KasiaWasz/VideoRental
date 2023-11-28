@@ -20,12 +20,13 @@ public class RentalHistoryService {
 
     private final RentalHistoryRepository rentalHistoryRepository;
     private final RentalHistoryQueries rentalHistoryQueries;
-   // private final MovieService movieService;
+    private final MovieService movieService;
 
 
     @Autowired
-    public RentalHistoryService(RentalHistoryRepository rentalHistoryRepository, RentalHistoryQueries rentalHistoryQueries) {
-       // this.movieService = movieService;
+    public RentalHistoryService(RentalHistoryRepository rentalHistoryRepository, RentalHistoryQueries rentalHistoryQueries, MovieService movieService) {
+        this.movieService = movieService;
+        //this.movieService = movieService;
 
         Assert.notNull(rentalHistoryRepository, "rentalHistoryRepository must not be null");
         Assert.notNull(rentalHistoryQueries, "rentalHistoryQueries must not be null");
@@ -43,7 +44,7 @@ public class RentalHistoryService {
     public void addNewRentalHistory(RentedMovie rentedMovie) {
 
         LocalDate currentDate = LocalDate.now();
-        BigDecimal moviePrice = BigDecimal.valueOf(22.00);
+        BigDecimal moviePrice = movieService.getById(rentedMovie.getMovieId()).getPrice();
         BigDecimal daysRented = BigDecimal.valueOf(ChronoUnit.DAYS.between(rentedMovie.getRentDate(), currentDate));
 
         RentalHistory newRentalHistory = new RentalHistory(
@@ -52,8 +53,7 @@ public class RentalHistoryService {
                 rentedMovie.getRentDate(),
                 currentDate,
                 daysRented,
-                moviePrice
-
+                moviePrice.multiply(daysRented)
         );
 
         rentalHistoryRepository.saveOrUpdate(newRentalHistory);
