@@ -81,7 +81,7 @@ class MovieEditController {
         return "redirect:" + MOVIE_LIST_URL;
     }
 
-    @GetMapping("/delete")
+    @GetMapping("/deactivate")
     private String deleteMovie(@RequestParam(P_MOVIE_ID) Long id) {
 
 
@@ -90,7 +90,7 @@ class MovieEditController {
            return V_ERROR_RENTED;
       }
 
-        movieService.deleteById(id);
+        movieService.setMovieActive(id);
 
         return "redirect:" + MOVIE_LIST_URL;
     }

@@ -35,7 +35,7 @@
             <th>Nazwa</th>
             <th>Cena</th>
             <th>Edycja</th>
-            <th>Usuń</th>
+            <th>Dezaktywacja</th>
         </tr>
         <c:forEach items="${movies}" var="movie">
         <tr>
@@ -45,7 +45,7 @@
             <td>
                 <a href="movie-edit?id=${movie.id}">Edytuj</a></td>
             <td>
-                <a href="movie-edit/delete?id=${movie.id}">Usuń</a></td>
+                <a href="movie-edit/deactivate?id=${movie.id}">Dezaktywuj</a></td>
         </tr>
         </c:forEach>
     </table>

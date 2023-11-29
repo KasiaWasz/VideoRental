@@ -90,4 +90,15 @@ public class MovieService {
         movie.setLastUpdateDate(currentTime);
         movieRepository.saveOrUpdate(movie);
     }
+
+    public void setMovieActive(Long id) {
+
+        Assert.notNull(id, "id must not be null");
+
+        Movie movie = getById(id);
+
+        movie.setMovieActive(false);
+
+        movieRepository.saveOrUpdate(movie);
+    }
 }
