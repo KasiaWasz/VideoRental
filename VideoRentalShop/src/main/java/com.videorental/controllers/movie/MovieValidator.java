@@ -1,6 +1,5 @@
 package com.videorental.controllers.movie;
 
-import com.videorental.controllers.employee.EmployeeForm;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;

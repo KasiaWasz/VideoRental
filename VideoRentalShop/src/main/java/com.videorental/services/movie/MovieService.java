@@ -40,6 +40,11 @@ public class MovieService {
         return movieQueries.getAllMoviesDto();
     }
 
+    public List<MovieDto> getAllActiveMoviesDto() {
+
+        return movieQueries.getAllActiveMoviesDto();
+    }
+
     public Movie getById(Long id) {
 
         Assert.notNull(id, "id must not be null");
@@ -88,6 +93,17 @@ public class MovieService {
         movie.setPrice(BigDecimal.valueOf(5.99));
         movie.setOnSale(true);
         movie.setLastUpdateDate(currentTime);
+        movieRepository.saveOrUpdate(movie);
+    }
+
+    public void setMovieActive(Long id) {
+
+        Assert.notNull(id, "id must not be null");
+
+        Movie movie = getById(id);
+
+        movie.setMovieActive(false);
+
         movieRepository.saveOrUpdate(movie);
     }
 }

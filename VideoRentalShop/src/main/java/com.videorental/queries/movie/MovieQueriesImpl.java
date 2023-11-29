@@ -38,8 +38,28 @@ class MovieQueriesImpl extends AbstractQueries<Movie> implements MovieQueries  {
                .toList();
     }
 
-    public Movie getMovieOnSale() {
+    public List<MovieDto> getAllActiveMoviesDto() {
 
+        try (Session session = sessionFactory.openSession()) {
+
+            CriteriaBuilder cb = session.getCriteriaBuilder();
+            CriteriaQuery<Movie> cq = cb.createQuery(Movie.class);
+            Root<Movie> root = cq.from(Movie.class);
+
+            cq.select(root)
+                    .where(cb.isTrue(root.get("isMovieActive")));
+
+             return session.createQuery(cq)
+                    .getResultList().stream()
+                    .map(movie -> new MovieDto(
+                            movie.getId(),
+                            movie.getName(),
+                            movie.getPrice()))
+                    .toList();
+            }
+        }
+
+    public Movie getMovieOnSale() {
 
         try (Session session = sessionFactory.openSession()) {
 
