@@ -1,7 +1,7 @@
 package com.videorental.queries.rentals.history;
 
 import com.videorental.dtos.rentals.history.RentalHistoryDto;
-import com.videorental.entities.rentals.history.RentalHistory;
+import com.videorental.entities.history.RentalHistory;
 
 import java.util.List;
 import java.util.Optional;

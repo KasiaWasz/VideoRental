@@ -2,7 +2,7 @@ package com.videorental.services.rentals.history;
 
 import com.videorental.dtos.rentals.history.RentalHistoryDto;
 import com.videorental.entities.rentals.RentedMovie;
-import com.videorental.entities.rentals.history.RentalHistory;
+import com.videorental.entities.history.RentalHistory;
 import com.videorental.queries.rentals.history.RentalHistoryQueries;
 import com.videorental.repositories.rentals.history.RentalHistoryRepository;
 import com.videorental.services.movie.MovieService;
