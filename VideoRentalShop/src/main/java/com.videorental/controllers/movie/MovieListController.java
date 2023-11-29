@@ -33,7 +33,7 @@ class MovieListController {
     @ModelAttribute(M_MOVIE_LIST)
     private List<MovieDto> getMovies() {
 
-        return movieService.getAllMoviesDto();
+        return movieService.getAllActiveMoviesDto();
     }
 
     @GetMapping

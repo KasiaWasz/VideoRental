@@ -40,6 +40,11 @@ public class MovieService {
         return movieQueries.getAllMoviesDto();
     }
 
+    public List<MovieDto> getAllActiveMoviesDto() {
+
+        return movieQueries.getAllActiveMoviesDto();
+    }
+
     public Movie getById(Long id) {
 
         Assert.notNull(id, "id must not be null");

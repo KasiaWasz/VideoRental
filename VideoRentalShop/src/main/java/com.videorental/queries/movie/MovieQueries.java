@@ -16,6 +16,8 @@ public interface MovieQueries {
 
     List<MovieDto> getAllMoviesDto();
 
+    List<MovieDto> getAllActiveMoviesDto();
+
     Long getRandomMovieId();
 
     Movie getMovieOnSale();
