@@ -1,4 +1,4 @@
-package com.videorental.entities.history;
+package com.videorental.entities.history.archicemovie;
 
 import org.springframework.util.Assert;
 

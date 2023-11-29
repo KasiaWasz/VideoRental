@@ -1,6 +1,6 @@
 package com.videorental.repositories.rentals.history;
 
-import com.videorental.entities.history.RentalHistory;
+import com.videorental.entities.history.rentalhistory.RentalHistory;
 
 public interface RentalHistoryRepository {
 

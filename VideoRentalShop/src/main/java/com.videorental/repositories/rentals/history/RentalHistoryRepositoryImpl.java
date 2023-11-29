@@ -1,6 +1,6 @@
 package com.videorental.repositories.rentals.history;
 
-import com.videorental.entities.history.RentalHistory;
+import com.videorental.entities.history.rentalhistory.RentalHistory;
 
 import com.videorental.repositories.AbstractRepository;
 import org.hibernate.SessionFactory;

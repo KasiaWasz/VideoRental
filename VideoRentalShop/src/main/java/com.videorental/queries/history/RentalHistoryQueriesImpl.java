@@ -1,12 +1,13 @@
-package com.videorental.queries.rentals.history;
+package com.videorental.queries.history;
 
 
-import com.videorental.dtos.rentals.history.RentalHistoryDto;
-import com.videorental.entities.history.RentalHistory;
+import com.videorental.dtos.history.RentalHistoryDto;
+import com.videorental.entities.history.rentalhistory.RentalHistory;
 import com.videorental.queries.AbstractQueries;
 import com.videorental.queries.client.ClientQueries;
 import com.videorental.queries.movie.MovieQueries;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -18,6 +19,8 @@ class RentalHistoryQueriesImpl extends AbstractQueries<RentalHistory> implements
     private final ClientQueries clientQueries;
     private final MovieQueries movieQueries;
 
+
+    @Autowired
     RentalHistoryQueriesImpl(SessionFactory sessionFactory, ClientQueries clientQueries, MovieQueries movieQueries) {
 
         super(sessionFactory, RentalHistory.class);
@@ -28,6 +31,7 @@ class RentalHistoryQueriesImpl extends AbstractQueries<RentalHistory> implements
         this.clientQueries = clientQueries;
         this.movieQueries = movieQueries;
     }
+
 
     @Override
     public List<RentalHistoryDto> getAllRentalHistoryDto() {
