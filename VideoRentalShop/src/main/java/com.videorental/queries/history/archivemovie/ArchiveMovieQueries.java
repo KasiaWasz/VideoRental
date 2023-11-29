@@ -1,7 +1,7 @@
 package com.videorental.queries.history.archivemovie;
 
 import com.videorental.dtos.movie.MovieDto;
-import com.videorental.entities.history.archicemovie.ArchiveMovie;
+import com.videorental.entities.history.archivemovie.ArchiveMovie;
 
 import java.util.List;
 import java.util.Optional;

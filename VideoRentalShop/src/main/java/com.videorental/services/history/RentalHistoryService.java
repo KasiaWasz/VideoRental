@@ -1,10 +1,10 @@
-package com.videorental.services.rentals.history;
+package com.videorental.services.history;
 
 import com.videorental.dtos.history.RentalHistoryDto;
-import com.videorental.entities.rentals.RentedMovie;
 import com.videorental.entities.history.rentalhistory.RentalHistory;
-import com.videorental.queries.history.RentalHistoryQueries;
-import com.videorental.repositories.rentals.history.RentalHistoryRepository;
+import com.videorental.entities.rentals.RentedMovie;
+import com.videorental.queries.history.rentalhistory.RentalHistoryQueries;
+import com.videorental.repositories.history.rentalhistory.RentalHistoryRepository;
 import com.videorental.services.movie.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

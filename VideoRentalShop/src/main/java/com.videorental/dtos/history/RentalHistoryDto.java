@@ -18,13 +18,13 @@ public class RentalHistoryDto {
 
 
     public RentalHistoryDto(Long id,
-        String clientFirstName,
-        String clientLastName,
-        String movieName,
-        LocalDate startRentDate,
-        LocalDate endRentDate,
-        BigDecimal numberOfRentedDays,
-        BigDecimal totalPrice) {
+                            String clientFirstName,
+                            String clientLastName,
+                            String movieName,
+                            LocalDate startRentDate,
+                            LocalDate endRentDate,
+                            BigDecimal numberOfRentedDays,
+                            BigDecimal totalPrice) {
 
         Assert.notNull(id, "id must not be null");
         Assert.notNull(clientFirstName,"clientFirstName should not be null");

@@ -31,7 +31,8 @@
                 VALUES('Rocky', 10.99, '2023-11-14', FALSE, TRUE),
                       ('Władca Pierścieni Drużyna Pierścienia', 10.99, '2023-11-14', FALSE, TRUE),
                       ('Dziedzictwo', 10.99, '2023-11-14', FALSE, TRUE),
-                      ('Władca Pierścieni Powrót Króla', 5.99, '2023-11-07', TRUE, TRUE);
+                      ('Władca Pierścieni Powrót Króla', 5.99, '2023-11-07', TRUE, TRUE),
+                      ('Władca Pierścieni Dwie Wieże', 10.99, '2023-11-14', FALSE, FALSE);
             ]]>
         </sql>
     </changeSet>
@@ -73,8 +74,8 @@
     <changeSet id="add-archive-movies" author="kasia">
         <sql dbms="postgresql" splitStatements="true" stripComments="true">
             <![CDATA[
-                INSERT INTO archive_movie (name, price, last_update_date,is_movie_active)
-                VALUES('Władca Pierścieni Dwie Wieże', 10.99, '2023-11-14', FALSE);
+                INSERT INTO archive_movie (movie_id, name, price, last_update_date,is_movie_active)
+                VALUES(5, 'Władca Pierścieni Dwie Wieże', 10.99, '2023-11-14', FALSE);
             ]]>
         </sql>
     </changeSet>

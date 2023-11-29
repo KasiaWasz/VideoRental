@@ -1,7 +1,7 @@
 package com.videorental.queries.history.archivemovie;
 
 import com.videorental.dtos.movie.MovieDto;
-import com.videorental.entities.history.archicemovie.ArchiveMovie;
+import com.videorental.entities.history.archivemovie.ArchiveMovie;
 import com.videorental.queries.AbstractQueries;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ class ArchiveMovieQueriesImpl extends AbstractQueries<ArchiveMovie> implements A
 
 
     @Autowired
-    public ArchiveMovieQueriesImpl(SessionFactory sessionFactory) {
+    ArchiveMovieQueriesImpl(SessionFactory sessionFactory) {
 
         super(sessionFactory, ArchiveMovie.class);
     }

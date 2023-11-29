@@ -1,10 +1,11 @@
-package com.videorental.queries.history;
+package com.videorental.queries.history.rentalhistory;
 
 
 import com.videorental.dtos.history.RentalHistoryDto;
 import com.videorental.entities.history.rentalhistory.RentalHistory;
 import com.videorental.queries.AbstractQueries;
 import com.videorental.queries.client.ClientQueries;
+import com.videorental.queries.history.rentalhistory.RentalHistoryQueries;
 import com.videorental.queries.movie.MovieQueries;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

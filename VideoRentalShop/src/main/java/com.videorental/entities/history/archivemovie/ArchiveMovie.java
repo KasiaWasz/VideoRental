@@ -1,4 +1,4 @@
-package com.videorental.entities.history.archicemovie;
+package com.videorental.entities.history.archivemovie;
 
 import org.springframework.util.Assert;
 
@@ -16,6 +16,9 @@ public class ArchiveMovie implements com.videorental.entities.Entity{
     private Long id;
 
     @Column
+    private Long movieId;
+
+    @Column
     private String name;
 
     @Column
@@ -28,14 +31,14 @@ public class ArchiveMovie implements com.videorental.entities.Entity{
     private boolean isMovieActive;
 
 
-    public ArchiveMovie(Long id, String name, BigDecimal price, LocalDate lastUpdateDate, boolean isMovieActive) {
+    public ArchiveMovie(Long movieId, String name, BigDecimal price, LocalDate lastUpdateDate, boolean isMovieActive) {
 
+        Assert.notNull(movieId, "movieId must not be null");
         Assert.notNull(name, "name must not be null");
         Assert.notNull(price, "price must not be null");
         Assert.notNull(lastUpdateDate, "lastUpdateDate must not be null");
-        Assert.notNull(isMovieActive, "isMovieActive must not be null");
 
-        this.id = id;
+        this.movieId = movieId;
         this.name = name;
         this.price = price;
         this.lastUpdateDate = lastUpdateDate;
@@ -53,6 +56,14 @@ public class ArchiveMovie implements com.videorental.entities.Entity{
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getMovieId() {
+        return movieId;
+    }
+
+    public void setMovieId(Long movieId) {
+        this.movieId = movieId;
     }
 
     public String getName() {
@@ -92,18 +103,19 @@ public class ArchiveMovie implements com.videorental.entities.Entity{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ArchiveMovie that = (ArchiveMovie) o;
-        return isMovieActive == that.isMovieActive && Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(price, that.price) && Objects.equals(lastUpdateDate, that.lastUpdateDate);
+        return isMovieActive == that.isMovieActive && Objects.equals(id, that.id) && Objects.equals(movieId, that.movieId) && Objects.equals(name, that.name) && Objects.equals(price, that.price) && Objects.equals(lastUpdateDate, that.lastUpdateDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, price, lastUpdateDate, isMovieActive);
+        return Objects.hash(id, movieId, name, price, lastUpdateDate, isMovieActive);
     }
 
     @Override
     public String toString() {
         return "ArchiveMovie{" +
                 "id=" + id +
+                ", movieId=" + movieId +
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", lastUpdateDate=" + lastUpdateDate +

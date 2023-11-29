@@ -1,4 +1,4 @@
-package com.videorental.queries.history;
+package com.videorental.queries.history.rentalhistory;
 
 import com.videorental.dtos.history.RentalHistoryDto;
 import com.videorental.entities.history.rentalhistory.RentalHistory;

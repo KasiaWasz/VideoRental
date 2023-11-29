@@ -3,10 +3,9 @@ package com.videorental.services.movie;
 import com.videorental.controllers.movie.MovieForm;
 import com.videorental.dtos.movie.MovieDto;
 import com.videorental.entities.movie.Movie;
-import com.videorental.entities.rentals.RentedMovie;
 import com.videorental.queries.movie.MovieQueries;
 import com.videorental.repositories.movie.MovieRepository;
-import com.videorental.services.rentals.RentedMovieService;
+import com.videorental.services.history.ArchiveMovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -21,17 +20,21 @@ public class MovieService {
 
     private final MovieQueries movieQueries;
     private final MovieRepository movieRepository;
+    private final ArchiveMovieService archiveMovieService;
 
 
     @Autowired
     private MovieService(MovieQueries movieQueries,
-        MovieRepository movieRepository) {
+        MovieRepository movieRepository,
+        ArchiveMovieService archiveMovieService) {
 
         Assert.notNull(movieQueries, "movieQueries must not be null");
         Assert.notNull(movieRepository, "movieRepository must not be null");
+        Assert.notNull(archiveMovieService, "archiveMovieService must not be null");
 
         this.movieQueries = movieQueries;
         this.movieRepository = movieRepository;
+        this.archiveMovieService = archiveMovieService;
     }
 
 
@@ -69,6 +72,7 @@ public class MovieService {
         movie.setName(movieForm.getName());
         movie.setPrice(movieForm.getPrice());
         movie.setLastUpdateDate(LocalDate.now());
+        movie.setMovieActive(true);
 
         movieRepository.saveOrUpdate(movie);
     }
@@ -105,5 +109,7 @@ public class MovieService {
         movie.setMovieActive(false);
 
         movieRepository.saveOrUpdate(movie);
+
+        archiveMovieService.saveArchiveMovie(movie);
     }
 }
