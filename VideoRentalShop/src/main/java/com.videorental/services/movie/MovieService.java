@@ -5,7 +5,7 @@ import com.videorental.dtos.movie.MovieDto;
 import com.videorental.entities.movie.Movie;
 import com.videorental.queries.movie.MovieQueries;
 import com.videorental.repositories.movie.MovieRepository;
-import com.videorental.services.history.ArchiveMovieService;
+import com.videorental.services.history.archivemovie.ArchiveMovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;

@@ -1,6 +1,7 @@
-package com.videorental.services.history;
+package com.videorental.services.history.archivemovie;
 
 import com.videorental.controllers.movie.MovieForm;
+import com.videorental.dtos.movie.MovieDto;
 import com.videorental.entities.history.archivemovie.ArchiveMovie;
 import com.videorental.entities.movie.Movie;
 import com.videorental.queries.history.archivemovie.ArchiveMovieQueries;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 public class ArchiveMovieService {
@@ -32,6 +34,10 @@ public class ArchiveMovieService {
         this.archiveMovieRepository = archiveMovieRepository;
     }
 
+    public List<MovieDto> getAllArchiveMoviesDto() {
+
+        return archiveMovieQueries.getAllArchiveMoviesDto();
+    }
 
     public void deleteById(Long id) {
 

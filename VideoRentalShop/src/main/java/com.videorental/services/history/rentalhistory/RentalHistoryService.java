@@ -1,4 +1,4 @@
-package com.videorental.services.history;
+package com.videorental.services.history.rentalhistory;
 
 import com.videorental.dtos.history.RentalHistoryDto;
 import com.videorental.entities.history.rentalhistory.RentalHistory;
@@ -24,15 +24,15 @@ public class RentalHistoryService {
 
 
     @Autowired
-    public RentalHistoryService(RentalHistoryRepository rentalHistoryRepository, RentalHistoryQueries rentalHistoryQueries, MovieService movieService) {
-        this.movieService = movieService;
-        //this.movieService = movieService;
+    private RentalHistoryService(RentalHistoryRepository rentalHistoryRepository, RentalHistoryQueries rentalHistoryQueries, MovieService movieService) {
 
         Assert.notNull(rentalHistoryRepository, "rentalHistoryRepository must not be null");
         Assert.notNull(rentalHistoryQueries, "rentalHistoryQueries must not be null");
+        Assert.notNull(movieService, "movieService must not be null");
 
         this.rentalHistoryRepository = rentalHistoryRepository;
         this.rentalHistoryQueries = rentalHistoryQueries;
+        this.movieService = movieService;
     }
 
 
