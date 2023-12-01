@@ -95,7 +95,7 @@ class RentedMovieEditController {
     }
 
     @GetMapping("/delete")
-    private String deleteEmployee(@RequestParam(P_RENTAL_ID) Long id) {
+    private String deleteRental(@RequestParam(P_RENTAL_ID) Long id) {
 
         rentedMovieService.deleteById(id);
 

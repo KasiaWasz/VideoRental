@@ -1,6 +1,5 @@
 package com.videorental.controllers.movie;
 
-import com.videorental.dtos.employee.EmployeeDto;
 import com.videorental.dtos.movie.MovieDto;
 import com.videorental.services.movie.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -28,6 +28,7 @@ class ShiftListController {
         this.shiftService = shiftService;
     }
 
+
     @ModelAttribute(M_SHIFTS_LIST)
     private List<ShiftDto> getAllShifts() {
 
