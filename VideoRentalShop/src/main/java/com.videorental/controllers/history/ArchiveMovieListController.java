@@ -1,6 +1,6 @@
 package com.videorental.controllers.history;
 
-import com.videorental.dtos.movie.MovieDto;
+import com.videorental.dtos.history.archivemovie.ArchiveMovieDto;
 import com.videorental.services.history.archivemovie.ArchiveMovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +31,7 @@ class ArchiveMovieListController {
 
 
     @ModelAttribute(M_ARCHIVE_MOVIE_LIST)
-    private List<MovieDto> getAllArchiveMoviesDto() {
+    private List<ArchiveMovieDto> getAllArchiveMoviesDto() {
 
         return archiveMovieService.getAllArchiveMoviesDto();
     }

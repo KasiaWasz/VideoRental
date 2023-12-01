@@ -32,6 +32,7 @@
     <table>
         <tr>
             <th>ID</th>
+            <th>ID filmu</th>
             <th>Nazwa</th>
             <th>Cena</th>
             <th>Usuń</th>
@@ -39,12 +40,15 @@
         <c:forEach items="${archiveMovies}" var="movie">
         <tr>
             <td>${movie.id}</td>
+            <td>${movie.movieId}</td>
             <td>${movie.name}</td>
             <td>${movie.price}</td>
             <td>
-                <a href="movie-edit/delete?id=${movie.id}">Usuń</a></td>
+                <a href="archive-movie-edit/delete?id=${movie.movieId}">Usuń</a></td>
         </tr>
         </c:forEach>
     </table>
+    <br>
+    <a href="/">Wróć do strony głównej</a>
 </body>
 </html>

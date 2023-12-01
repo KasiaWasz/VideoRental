@@ -1,6 +1,6 @@
 package com.videorental.services.history.rentalhistory;
 
-import com.videorental.dtos.history.RentalHistoryDto;
+import com.videorental.dtos.history.rentalhistory.RentalHistoryDto;
 import com.videorental.entities.history.rentalhistory.RentalHistory;
 import com.videorental.entities.rentals.RentedMovie;
 import com.videorental.queries.history.rentalhistory.RentalHistoryQueries;
@@ -57,5 +57,23 @@ public class RentalHistoryService {
         );
 
         rentalHistoryRepository.saveOrUpdate(newRentalHistory);
+    }
+
+    public void deleteByMovieId(Long movieId) {
+
+        Assert.notNull(movieId, "movieId must not be null");
+
+        List<RentalHistory> rentalHistories = rentalHistoryQueries.getByMovieId(movieId);
+
+        rentalHistories.stream()
+                .map(RentalHistory::getId)
+                .forEach(this::deleteById);
+    }
+
+    public void deleteById(Long id) {
+
+        Assert.notNull(id, "id must not be null");
+
+        rentalHistoryRepository.deleteById(id);
     }
 }

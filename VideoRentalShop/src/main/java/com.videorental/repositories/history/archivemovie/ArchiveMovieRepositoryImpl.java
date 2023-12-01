@@ -15,5 +15,4 @@ class ArchiveMovieRepositoryImpl extends AbstractRepository<ArchiveMovie> implem
 
         super(sessionFactory, ArchiveMovie.class);
     }
-
 }
