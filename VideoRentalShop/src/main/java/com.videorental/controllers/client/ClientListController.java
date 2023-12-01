@@ -34,6 +34,7 @@ class ClientListController {
         this.clientService = clientService;
     }
 
+
     @ModelAttribute(M_CLIENT_LIST)
     private List<ClientDto> getClients() {
 

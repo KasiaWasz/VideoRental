@@ -21,6 +21,7 @@ class RentalFeeListController {
 
     private final RentalFeeService rentalFeeService;
 
+
     @Autowired
     private RentalFeeListController(RentalFeeService rentalFeeService) {
 
@@ -28,6 +29,7 @@ class RentalFeeListController {
 
         this.rentalFeeService = rentalFeeService;
     }
+
 
     @ModelAttribute(M_RENTAL_FEE_LIST)
     private List<RentalFeeDto> rentalFee() {

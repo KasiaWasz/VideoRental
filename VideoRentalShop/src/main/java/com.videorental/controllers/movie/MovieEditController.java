@@ -82,7 +82,7 @@ class MovieEditController {
     }
 
     @GetMapping("/deactivate")
-    private String deleteMovie(@RequestParam(P_MOVIE_ID) Long id) {
+    private String deactivateMovie(@RequestParam(P_MOVIE_ID) Long id) {
 
 
        if (movieIdValidator.isMovieRented(id)) {
