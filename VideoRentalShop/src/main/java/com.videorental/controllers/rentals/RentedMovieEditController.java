@@ -65,7 +65,7 @@ class RentedMovieEditController {
     @ModelAttribute(M_MOVIE_LIST)
     private List<MovieDto> getMovies() {
 
-        return movieService.getAllMoviesDto();
+        return movieService.getAllActiveMoviesDto();
     }
 
     @ModelAttribute(M_EDIT_FORM)

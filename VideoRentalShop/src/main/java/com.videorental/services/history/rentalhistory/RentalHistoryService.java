@@ -1,10 +1,10 @@
-package com.videorental.services.rentals.history;
+package com.videorental.services.history.rentalhistory;
 
-import com.videorental.dtos.rentals.history.RentalHistoryDto;
+import com.videorental.dtos.history.rentalhistory.RentalHistoryDto;
+import com.videorental.entities.history.rentalhistory.RentalHistory;
 import com.videorental.entities.rentals.RentedMovie;
-import com.videorental.entities.rentals.history.RentalHistory;
-import com.videorental.queries.rentals.history.RentalHistoryQueries;
-import com.videorental.repositories.rentals.history.RentalHistoryRepository;
+import com.videorental.queries.history.rentalhistory.RentalHistoryQueries;
+import com.videorental.repositories.history.rentalhistory.RentalHistoryRepository;
 import com.videorental.services.movie.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,15 +24,15 @@ public class RentalHistoryService {
 
 
     @Autowired
-    public RentalHistoryService(RentalHistoryRepository rentalHistoryRepository, RentalHistoryQueries rentalHistoryQueries, MovieService movieService) {
-        this.movieService = movieService;
-        //this.movieService = movieService;
+    private RentalHistoryService(RentalHistoryRepository rentalHistoryRepository, RentalHistoryQueries rentalHistoryQueries, MovieService movieService) {
 
         Assert.notNull(rentalHistoryRepository, "rentalHistoryRepository must not be null");
         Assert.notNull(rentalHistoryQueries, "rentalHistoryQueries must not be null");
+        Assert.notNull(movieService, "movieService must not be null");
 
         this.rentalHistoryRepository = rentalHistoryRepository;
         this.rentalHistoryQueries = rentalHistoryQueries;
+        this.movieService = movieService;
     }
 
 
@@ -57,5 +57,23 @@ public class RentalHistoryService {
         );
 
         rentalHistoryRepository.saveOrUpdate(newRentalHistory);
+    }
+
+    public void deleteByMovieId(Long movieId) {
+
+        Assert.notNull(movieId, "movieId must not be null");
+
+        List<RentalHistory> rentalHistories = rentalHistoryQueries.getByMovieId(movieId);
+
+        rentalHistories.stream()
+                .map(RentalHistory::getId)
+                .forEach(this::deleteById);
+    }
+
+    public void deleteById(Long id) {
+
+        Assert.notNull(id, "id must not be null");
+
+        rentalHistoryRepository.deleteById(id);
     }
 }

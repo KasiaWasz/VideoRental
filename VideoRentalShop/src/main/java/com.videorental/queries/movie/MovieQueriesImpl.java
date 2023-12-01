@@ -84,7 +84,7 @@ class MovieQueriesImpl extends AbstractQueries<Movie> implements MovieQueries  {
 
     public Long getRandomMovieId() {
 
-       int movieSize = getAll().size();
+       int movieSize = getAllActiveMoviesDto().size();
        return random.nextLong(1, movieSize - 1);
     }
 }

@@ -23,8 +23,9 @@
         <li><a href="/shift-list">Zobacz wszystkie zmiany</a></li>
         <li><a href="/shift-edit">Dodaj zmianę</a></li>
     <h4>Filmy</h4>
-        <li><a href="/movie-list">Zobacz wszystkie filmy</a></li>
+        <li><a href="/movie-list">Zobacz filmy dostępne do wypożyczenia</a></li>
         <li><a href="/movie-edit">Dodaj film</a></li>
+        <li><a href="/archive-movie-list">Zobacz filmy archiwalne</a></li>
     <h4>Wypożyczenia</h4>
         <li><a href="/rental-list">Zobacz wszystkie wypożyczenia</a></li>
         <li><a href="/rental-fee-list">Zobacz opłaty za wypożyczenia</a></li>

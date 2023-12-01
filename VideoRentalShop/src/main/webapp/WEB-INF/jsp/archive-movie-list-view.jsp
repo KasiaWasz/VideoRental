@@ -6,7 +6,7 @@
 <html lang="pl">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
-    <title>Wypożyczenia</title>
+    <title>Filmy</title>
 
 <style>
     table{
@@ -28,23 +28,23 @@
 </style>
 </head>
 <body>
-    <h1>Wypożyczenia</h1>
+    <h1>Nieaktywne filmy</h1>
     <table>
         <tr>
             <th>ID</th>
-            <th>Imię i nazwisko</th>
-            <th>Nazwa filmu</th>
-            <th>Data wypożyczenia</th>
+            <th>ID filmu</th>
+            <th>Nazwa</th>
+            <th>Cena</th>
             <th>Usuń</th>
         </tr>
-        <c:forEach items="${rentals}" var="rental">
+        <c:forEach items="${archiveMovies}" var="movie">
         <tr>
-            <td>${rental.id}</td>
-            <td>${rental.clientFirstName} ${rental.clientLastName}</td>
-            <td>${rental.movieName}</td>
-            <td>${rental.rentDate}</td>
+            <td>${movie.id}</td>
+            <td>${movie.movieId}</td>
+            <td>${movie.name}</td>
+            <td>${movie.price}</td>
             <td>
-                <a href="rental-edit/delete?id=${rental.id}">Usuń</a></td>
+                <a href="archive-movie-edit/delete?id=${movie.movieId}">Usuń</a></td>
         </tr>
         </c:forEach>
     </table>

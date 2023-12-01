@@ -1,7 +1,7 @@
-package com.videorental.queries.rentals.history;
+package com.videorental.queries.history.rentalhistory;
 
-import com.videorental.dtos.rentals.history.RentalHistoryDto;
-import com.videorental.entities.rentals.history.RentalHistory;
+import com.videorental.dtos.history.rentalhistory.RentalHistoryDto;
+import com.videorental.entities.history.rentalhistory.RentalHistory;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,6 +9,8 @@ import java.util.Optional;
 public interface RentalHistoryQueries {
 
     RentalHistory getById(Long id);
+
+    List<RentalHistory> getByMovieId(Long movieId);
 
     List<RentalHistory> getAll();
 

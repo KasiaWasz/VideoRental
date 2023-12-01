@@ -31,8 +31,8 @@
                 VALUES('Rocky', 10.99, '2023-11-14', FALSE, TRUE),
                       ('Władca Pierścieni Drużyna Pierścienia', 10.99, '2023-11-14', FALSE, TRUE),
                       ('Dziedzictwo', 10.99, '2023-11-14', FALSE, TRUE),
-                      ('Władca Pierścieni Dwie Wieże', 10.99, '2023-11-14', FALSE, TRUE),
-                      ('Władca Pierścieni Powrót Króla', 5.99, '2023-11-07', TRUE, TRUE);
+                      ('Władca Pierścieni Powrót Króla', 5.99, '2023-11-07', TRUE, TRUE),
+                      ('Władca Pierścieni Dwie Wieże', 10.99, '2023-11-14', FALSE, FALSE);
             ]]>
         </sql>
     </changeSet>
@@ -54,8 +54,7 @@
                 INSERT INTO rented_movie (client_id, movie_id, rent_date)
                 VALUES(1, 1, '2023-11-24'),
                       (1, 2, '2023-11-25'),
-                      (2, 3, '2023-11-27'),
-                      (3, 4, '2023-11-25');
+                      (2, 3, '2023-11-27');
             ]]>
         </sql>
     </changeSet>
@@ -68,6 +67,15 @@
                       (1, 2, '2023-10-01', '2023-10-03', 2, 21.98),
                       (2, 3, '2023-10-03', '2023-10-04', 1, 10.99),
                       (3, 4, '2023-10-05', '2023-10-07', 2, 21.98);
+            ]]>
+        </sql>
+    </changeSet>
+
+    <changeSet id="add-archive-movies" author="kasia">
+        <sql dbms="postgresql" splitStatements="true" stripComments="true">
+            <![CDATA[
+                INSERT INTO archive_movie (movie_id, name, price, last_update_date,is_movie_active)
+                VALUES(5, 'Władca Pierścieni Dwie Wieże', 10.99, '2023-11-14', FALSE);
             ]]>
         </sql>
     </changeSet>

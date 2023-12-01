@@ -1,7 +1,6 @@
-package com.videorental.repositories.rentals.history;
+package com.videorental.repositories.history.rentalhistory;
 
-import com.videorental.entities.rentals.history.RentalHistory;
-
+import com.videorental.entities.history.rentalhistory.RentalHistory;
 import com.videorental.repositories.AbstractRepository;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
