@@ -23,6 +23,7 @@ public class EmployeeService {
     private final EmployeeRepository employeeRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
+
     @Autowired
     private EmployeeService(EmployeeQueries employeeQueries, EmployeeRepository employeeRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
 
@@ -33,6 +34,7 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
+
 
     public List<EmployeeDto> getAllEmployeesDto() {
 
@@ -110,5 +112,4 @@ public class EmployeeService {
 
         employeeRepository.deleteById(id);
     }
-
 }

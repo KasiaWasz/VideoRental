@@ -30,6 +30,7 @@ public class ShiftService {
         this.shiftRepository = shiftRepository;
     }
 
+
     public List<ShiftDto> getAllShiftsDto() {
 
         return shiftQueries.getAllShiftDto();
@@ -68,7 +69,5 @@ public class ShiftService {
         shift.setHours(shiftForm.getHours());
 
         shiftRepository.saveOrUpdate(shift);
-
     }
-
 }

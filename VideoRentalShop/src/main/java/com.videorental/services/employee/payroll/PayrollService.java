@@ -33,6 +33,7 @@ public class PayrollService {
         this.shiftQueries = shiftQueries;
     }
 
+
     public List<PayrollDto> getAllPayrolls(LocalDate startDate, LocalDate endDate) {
 
         Assert.notNull(startDate, "startDate must not be null");

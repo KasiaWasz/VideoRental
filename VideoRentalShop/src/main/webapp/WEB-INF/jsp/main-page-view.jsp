@@ -25,12 +25,14 @@
     <h4>Filmy</h4>
         <li><a href="/movie-list">Zobacz filmy dostępne do wypożyczenia</a></li>
         <li><a href="/movie-edit">Dodaj film</a></li>
-        <li><a href="/archive-movie-list">Zobacz filmy archiwalne</a></li>
     <h4>Wypożyczenia</h4>
         <li><a href="/rental-list">Zobacz wszystkie wypożyczenia</a></li>
         <li><a href="/rental-fee-list">Zobacz opłaty za wypożyczenia</a></li>
         <li><a href="/rental-edit">Wypożycz film</a></li>
     <h4>Wynagrodzenia</h4>
         <li><a href="/payroll-list">Podlicz wynagrodzenia</a></li>
+    <h4>Historia</h4>
+        <li><a href="/rental-history-list">Historia wypożyczeń</a></li>
+        <li><a href="/archive-movie-list">Zobacz filmy archiwalne</a></li>
     </body>
     </html>
