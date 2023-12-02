@@ -31,6 +31,9 @@ public class MovieDeletionService {
 
 
     public void deleteMovieById(Long id) {
+
+        Assert.notNull(id, "id must not be null");
+
         rentalHistoryService.deleteByMovieId(id);
         archiveMovieService.deleteByMovieId(id);
         movieService.deleteById(id);

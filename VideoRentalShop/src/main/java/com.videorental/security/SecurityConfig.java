@@ -22,6 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String MOVIE_DEACTIVATE_URL = "/movie-edit/deactivate";
     private static final String ARCHIVE_MOVIE_LIST_URL = "/archive-movie-list";
     private static final String ARCHIVE_MOVIE_EDIT_URL = "/archive-movie-edit";
+    private static final String RENTAL_HISTORY_LIST_URL = "/rental-history-list";
     private static final String CLIENT_LIST_URL = "/client-list";
     private static final String CLIENT_DETAIL_URL = "/client-list/details";
     private static final String CLIENT_DETAILS_URL = "/client-list/clients-details";
@@ -61,7 +62,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .hasRole("MANAGER")
                 .antMatchers(EMPLOYEE_LIST_URL, SHIFT_LIST_URL, CLIENT_LIST_URL, CLIENT_DETAIL_URL,
                         CLIENT_DETAILS_URL, CLIENT_EDIT_URL, MOVIE_EDIT_URL, RENTAL_EDIT_URL,
-                        RENTAL_LIST_URL, RENTAL_FEE_LIST_URL)
+                        RENTAL_LIST_URL, RENTAL_FEE_LIST_URL, RENTAL_HISTORY_LIST_URL)
                 .hasAnyRole("MANAGER", "KASJER")
                 .and()
                 .formLogin().permitAll()

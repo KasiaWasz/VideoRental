@@ -1,4 +1,4 @@
-package com.videorental.controllers.history;
+package com.videorental.controllers.history.archivemovie;
 
 import com.videorental.dtos.history.archivemovie.ArchiveMovieDto;
 import com.videorental.services.history.archivemovie.ArchiveMovieService;

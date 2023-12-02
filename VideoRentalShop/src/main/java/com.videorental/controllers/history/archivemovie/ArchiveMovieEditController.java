@@ -1,4 +1,4 @@
-package com.videorental.controllers.history;
+package com.videorental.controllers.history.archivemovie;
 
 import com.videorental.services.movie.MovieDeletionService;
 import org.springframework.beans.factory.annotation.Autowired;
