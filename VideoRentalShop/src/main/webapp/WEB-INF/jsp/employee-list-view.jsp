@@ -22,9 +22,11 @@
     padding: 8px;
     }
 
-    body{
-    text-align: center
-    }
+     body{
+     text-align: center;
+     font-family: sans-serif;
+     background-color: #eee;
+     }
 </style>
 </head>
 <body>
