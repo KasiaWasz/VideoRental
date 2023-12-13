@@ -24,6 +24,8 @@
 
     body{
     text-align: center;
+    font-family: sans-serif;
+    background-color: #eee;
     }
 </style>
 </head>
